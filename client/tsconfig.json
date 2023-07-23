@@ -12,7 +12,7 @@
     "moduleResolution": "node", // 모듈 분석 방법 설정: 'node' (Node.js) 또는 'classic' (TypeScript pre-1.6).
     "resolveJsonModule": true, // json 파일 파서
     "isolatedModules": true, // 각 파일을 별도 모듈로 변환 ('ts.transpileModule'과 유사)
-    "types": ["jest", "node"], // 컴파일 시 포함될 유형 선언 파일 입력
+    "types": ["jest" ,"node"], // 컴파일 시 포함될 유형 선언 파일 입력
     /* ---------------------------------------------------------------------------------------------------------------------------------------------------- */
     "jsx": "preserve",
     /* 컨벤션 옵션 ------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -38,7 +38,7 @@
       "@interfaces/*": ["interfaces/*"],
       "@images/*": ["../../public/images/*"],
       "@assets/*": ["assets/*"]
-    }
+    },
   },
   "include": ["next-env.d.ts", "src", "**/*.ts", "**/*.tsx", "types/**/*.ts"], // 컴파일 포함
   "exclude": ["node_modules"] // 컴파일 제외
