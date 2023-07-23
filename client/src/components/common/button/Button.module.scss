@@ -1,0 +1,58 @@
+@import "Button.mixin";
+
+.primary {
+  @include buttonDefaultOptions();
+  background-color: $primary;
+
+  span {
+    color: $white;
+  }
+}
+
+.primary-outline {
+  @include buttonDefaultOptions();
+  background-color: $white;
+  border-color: $primary;
+
+  span {
+    color: $primary;
+  }
+
+  &:hover {
+    background-color: $primary;
+
+    span {
+      color: $white;
+    }
+  }
+}
+
+.primary-rounded {
+  @include buttonDefaultOptions();
+  background-color: $primary;
+  border-radius: 50px;
+
+  span {
+    color: $white;
+  }
+
+
+}
+
+.secondary {
+  @include buttonDefaultOptions();
+  background-color: $line;
+
+  span {
+    color: $black200;
+  }
+}
+
+.icon {
+  @include buttonDefaultOptions();
+  background-color: transparent;
+  width: fit-content;
+  height: auto;
+  box-shadow: inherit;
+  padding: 0;
+}

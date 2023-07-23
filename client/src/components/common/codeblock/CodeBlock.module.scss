@@ -1,0 +1,12 @@
+.code_block {
+  margin: 0.5em 0;
+  .code_label {
+    color: #737070;
+    padding-bottom: 1em;
+    
+    &::before {
+      content: '//';
+    }
+  }
+}
+
