@@ -1,0 +1,28 @@
+.timer {
+  display: flex;
+  align-items: center;
+  height: 100px;
+
+  .timer_start {
+    animation: motion 1s linear 0s infinite alternate;
+  }
+
+  .timer_half {
+    animation: motion 0.5s linear 0s infinite alternate;
+  }
+
+  .timer_end {
+    animation: motion 0.1s linear 0s infinite alternate;
+  }
+}
+
+@keyframes motion {
+  0% {
+    margin-top: 0;
+    transform: rotate(-10deg) scale(1);
+  }
+  100% {
+    margin-top: 10px;
+    transform: rotate(10deg) scale(1);
+  }
+}
