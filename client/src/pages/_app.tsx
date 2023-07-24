@@ -7,19 +7,20 @@ import {ReactQueryDevtools} from "@tanstack/react-query-devtools";
 import {queryClient} from "@libs/tanstack";
 import {NextComponentType} from "next";
 import React from "react";
-import {dehydrate} from '@tanstack/react-query'
 
 const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({Component, pageProps}) => {
-  const queryClientRef = React.useRef<queryClient>();
+  const [queryState] = React.useState(() => queryClient)
 
   return (
     <>
       <ErrorBoundary>
-        <QueryClientProvider client={queryClient}>
-          <LayoutComponent>
-            <Component {...pageProps} />
-          </LayoutComponent>
-          <ReactQueryDevtools initialIsOpen={false}/>
+        <QueryClientProvider client={queryState}>
+          <Hydrate state={pageProps.dehydratedState}>
+            <LayoutComponent>
+              <Component {...pageProps} />
+            </LayoutComponent>
+            <ReactQueryDevtools initialIsOpen={false}/>
+          </Hydrate>
         </QueryClientProvider>
       </ErrorBoundary>
     </>
