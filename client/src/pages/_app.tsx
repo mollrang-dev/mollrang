@@ -7,6 +7,7 @@ import {ReactQueryDevtools} from "@tanstack/react-query-devtools";
 import {queryClient} from "@libs/tanstack";
 import {NextComponentType} from "next";
 import React from "react";
+import {wrapper} from "@store/index";
 
 const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({Component, pageProps}) => {
   const [queryState] = React.useState(() => queryClient)
@@ -35,4 +36,4 @@ App.getInitialProps = async ({Component, ctx}: AppContext): Promise<AppInitialPr
 
   return {pageProps}
 }
-export default App;
+export default wrapper.withRedux(App);
