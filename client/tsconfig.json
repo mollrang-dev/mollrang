@@ -30,6 +30,7 @@
       "@pages/*": ["pages/*"],
       "@api/*": ["pages/api/*"],
       "@apis/*": ["apis/*"],
+      "@hooks/*": ["hooks/*"],
       "@constants/*": ["constants/*"],
       "@libs/*": ["libs/*"],
       "@store/*": ["store/*"],

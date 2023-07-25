@@ -24,7 +24,6 @@ export default function withGetServerSideProps(
           },
         };
       }
-      console.error('unhandled error', error);
       throw error;
     }
   };
