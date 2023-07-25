@@ -1,0 +1,93 @@
+$size: 1;
+$total: 100;
+
+@for $size from 1 to $total {
+  .mt-#{$size} {
+    margin-top: $size + px !important;
+  }
+  .ml-#{$size} {
+    margin-left: $size + px !important;
+  }
+  .mr-#{$size} {
+    margin-right: $size + px !important;
+  }
+  .mb-#{$size} {
+    margin-bottom: $size + px !important;
+  }
+  .m-#{$size} {
+    margin: $size + px !important;
+  }
+  .mx-#{$size} {
+    margin-left: $size + px !important;
+    margin-right: $size + px !important;
+  }
+  .my-#{$size} {
+    margin-top: $size + px !important;
+    margin-bottom: $size + px !important;
+  }
+
+  .pt-#{$size} {
+    padding-top: $size + px !important;
+  }
+  .pl-#{$size} {
+    padding-left: $size + px !important;
+  }
+  .pr-#{$size} {
+    padding-right: $size + px !important;
+  }
+  .pb-#{$size} {
+    padding-bottom: $size + px !important;
+  }
+  .p-#{$size} {
+    margin: $size + px !important;
+  }
+  .px-#{$size} {
+    padding-left: $size + px !important;
+    padding-right: $size + px !important;
+  }
+  .py-#{$size} {
+    padding-top: $size + px !important;
+    padding-bottom: $size + px !important;
+  }
+
+  .gap-#{$size} {
+    gap: $size + px !important;
+  }
+}
+
+.scroll {
+  width: 100%;
+  padding: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $line;
+    border-radius: 1px;
+  }
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.text-center {
+  text-align: center;
+}

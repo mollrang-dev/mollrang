@@ -51,6 +51,7 @@ module.exports = {
     includePaths: [path.join(__dirname, 'src/styles')],
     prependData: `
       @import "./_color.scss";
+       @import "./_utils.scss";
       `,
   },
   moduleNameMapper: {

@@ -3,7 +3,7 @@ import classNames from "classnames";
 import styles from './Icon.module.scss';
 import Image from "next/image";
 
-type IconType = 'hamburger'
+type IconType = 'hamburger' | 'exit' | 'github' | 'pennote' | 'document' | 'star'
 
 interface Props extends ComponentProps<'span'> {
   type: IconType | string;

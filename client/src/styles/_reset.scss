@@ -132,6 +132,12 @@ body {
   line-height: 1;
 }
 
+hr {
+  background: $line;
+  height: 1px;
+  border: 0;
+}
+
 ol,
 ul {
   list-style: none;

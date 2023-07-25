@@ -55,7 +55,7 @@ $notoSans: 'Noto Sans KR';
 
 @mixin caption {
   @include default();
-  font-size: min(4vw, 14px);
+  font-size: min(4vw, 12px);
   line-height: 1.25rem;
   letter-spacing: 0.15px;
 }
