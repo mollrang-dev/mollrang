@@ -1,8 +1,19 @@
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch, useSelector} from "react-redux"
+import {Dispatch, Action} from 'redux';
 import type {TypedUseSelectorHook} from 'react-redux';
 import type {RootState, AppDispatch} from '@store/index';
 
-/** useDispatch는 thunkAction에 대해서 타입에러를 발생시키므로 커스터 마이징해서 사용합니다. */
-export const useAppDispatch: () => AppDispatch = useDispatch;
-/** useSelector를 사용할 경우, 매번 state의 타입을 지정해줘야 하기 때문에 커스터 마이징해서 사용합니다. */
+type ActionCreator<T> = (...args: any[]) => T
+type CustomDispatch<T> = (actionCreator: ActionCreator<T>, ...args: any[]) => void
+
+export const useAppDispatch: AppDispatch = <T extends Action<any>>(): CustomDispatch<T> => {
+  const dispatch = useDispatch<Dispatch<T>>();
+
+  const customDispatch: CustomDispatch<T> = (actionCreator, ...args) => {
+    const action = actionCreator(...args)
+    dispatch(action)
+  }
+  return customDispatch
+}
+
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;

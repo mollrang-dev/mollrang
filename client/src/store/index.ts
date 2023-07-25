@@ -5,11 +5,13 @@ import {
   ThunkAction,
   Action
 } from '@reduxjs/toolkit';
-import {createWrapper, HYDRATE} from 'next-redux-wrapper';
+import {createWrapper} from 'next-redux-wrapper';
 import logger from 'redux-logger';
-import {authSlice} from "@store/slice/authSlice";
+import {AuthSlice, authSlice} from "@store/slice/authSlice";
 
-const reducer = (state: any, action: PayloadAction<any>) => {
+const debugOn = process.env.NODE_ENV === 'development';
+
+const reducer = (state: RootState, action: PayloadAction<RootAction>) => {
   return combineReducers({
     [authSlice.name]: authSlice.reducer
   })(state, action);
@@ -24,8 +26,10 @@ const makeStore = () =>
 const store = makeStore();
 
 export const wrapper = createWrapper<AppStore>(makeStore, {
-  debug: process.env.NODE_ENV === 'development'
+  debug: debugOn
 });
+
+type RootAction = ReturnType<AuthSlice>
 export type AppStore = ReturnType<typeof makeStore>;
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
