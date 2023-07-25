@@ -1,25 +1,30 @@
 import {
   combineReducers,
   configureStore,
-  PayloadAction,
   ThunkAction,
-  Action
+  Action, AnyAction, CombinedState, Reducer
 } from '@reduxjs/toolkit';
-import {createWrapper} from 'next-redux-wrapper';
+import {createWrapper, HYDRATE} from 'next-redux-wrapper';
 import logger from 'redux-logger';
-import {AuthSlice, authSlice} from "@store/slice/authSlice";
+import {UtilSlice, UtilState} from "@store/slice/utilSlice";
 
 const debugOn = process.env.NODE_ENV === 'development';
 
-const reducer = (state: RootState, action: PayloadAction<RootAction>) => {
-  return combineReducers({
-    [authSlice.name]: authSlice.reducer
-  })(state, action);
+export interface RootState {
+  utils: UtilState;
+}
+
+const RootReducer = (state: RootState, action: AnyAction): CombinedState<RootState> => {
+  if (action.type === HYDRATE) return {...state, ...action.payload};
+  const combinedReducer = combineReducers({
+    [UtilSlice.name]: UtilSlice.reducer
+  });
+  return combinedReducer(state, action);
 };
 
 const makeStore = () =>
   configureStore({
-    reducer,
+    reducer: RootReducer as Reducer<CombinedState<RootState>, AnyAction>,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger)
   });
 
@@ -29,9 +34,7 @@ export const wrapper = createWrapper<AppStore>(makeStore, {
   debug: debugOn
 });
 
-type RootAction = ReturnType<AuthSlice>
 export type AppStore = ReturnType<typeof makeStore>;
-export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 export type AppThunk<ReturnType = void> = ThunkAction<ReturnType,
   RootState,

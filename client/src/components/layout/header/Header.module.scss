@@ -13,20 +13,4 @@
     padding: 1em;
     align-items: center;
   }
-
-  &_menu {
-    display: flex;
-
-    li {
-      margin-right: 1em;
-    }
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .header {
-    &_menu {
-      display: none;
-    }
-  }
 }

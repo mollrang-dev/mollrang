@@ -74,9 +74,6 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, E
 
       return <div>ERROR PAGE</div>;
     }
-
-    console.log('unhandled client error');
-
     return this.props.children;
   }
 }
