@@ -32,16 +32,20 @@
   @include caption;
 }
 
+.light {
+  @include light;
+}
+
+.thin {
+  @include thin;
+}
+
 .regular {
   @include regular;
 }
 
 .medium {
   @include medium;
-}
-
-.semibold {
-  @include semibold;
 }
 
 .bold {
@@ -59,7 +63,6 @@
 .black200 {
   color: $black200;
 }
-
 
 .black300 {
   color: $black300;
