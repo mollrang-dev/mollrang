@@ -6,6 +6,7 @@
   left: 0;
   background-color: $white;
   box-shadow: 0 4px 4px 0 rgba(233, 233, 233, 0.5);
+  z-index: 1;
 
   &_container {
     display: flex;
