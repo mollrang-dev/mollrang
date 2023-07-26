@@ -15,7 +15,8 @@ export const Icon = (props: Props): ReactElement => {
   const {type, width, height, className} = props;
   return (
     <span className={classNames(className, styles.iconWrapper)}>
-      <Image alt={`${type}-icon`} src={`/images/icons/${type}.svg`} width={width} height={height}/>
+      <Image sizes="120px" priority={true} alt={`${type}-icon`} src={`/images/icons/${type}.svg`} width={width}
+             height={height}/>
     </span>
   )
 }

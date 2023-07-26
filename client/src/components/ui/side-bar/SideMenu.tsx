@@ -1,4 +1,4 @@
-import {ReactElement} from "react";
+import React, {ReactElement, useEffect, useRef} from "react";
 import styles from './SideMenu.module.scss';
 import classNames from "classnames";
 import {useAppDispatch} from "@hooks/reduxHooks";
@@ -14,13 +14,30 @@ interface Props {
 export const SideMenu = (props: Props): ReactElement => {
   const dispatch = useAppDispatch();
   const {isOpen = false} = props;
+  const ele = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const html = document.querySelector('html')
+    if (html) {
+      isOpen ? (html.style.overflow = 'hidden') : (html.style.overflow = '')
+    }
+  }, [isOpen])
 
   const closeSideMenuButtonHandler = () => {
     dispatch(setSideBarIsOpen(false));
   }
+
+  const outerClickEvent = (e: React.MouseEvent) => {
+    const {target} = e
+    if (ele && ele.current) {
+      const elements = ele.current.contains(target as Node) // HTMLElement
+      if (!elements) closeSideMenuButtonHandler();
+    }
+  }
+  
   return (
-    <aside className={classNames(styles.side_menu, !isOpen && styles.hide)}>
-      <div className={styles.side_menu_container}>
+    <aside onClick={outerClickEvent} className={classNames(styles.side_menu, !isOpen && styles.hide)}>
+      <div ref={ele} className={styles.side_menu_container}>
         <div className={styles.close_button_wrapper}>
           <Button variant={'icon'} onClick={closeSideMenuButtonHandler}>
             <Icon type={'exit'} width={30} height={30}/>

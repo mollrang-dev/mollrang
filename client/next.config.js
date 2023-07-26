@@ -5,7 +5,7 @@ module.exports = {
   images: {
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    domains: ['img.shields.io', 'picsum.photos', '4u-recipe.s3.ap-northeast-2.amazonaws.com'],
+    domains: ['img.shields.io', 'picsum.photos'],
     remotePatterns: [
       {
         protocol: 'https',
@@ -18,12 +18,6 @@ module.exports = {
         hostname: 'picsum.photos',
         port: '',
         pathname: '/400/**',
-      },
-      {
-        protocol: 'https',
-        hostname: '4u-recipe.s3.ap-northeast-2.amazonaws.com',
-        port: '',
-        pathname: '/dev-log/**',
       },
     ],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],

@@ -10,7 +10,7 @@ export const Root = (): ReactElement => {
     <div className={styles.root_container}>
       <section className={styles.root_items_container}>
         <div>
-          <Image src={'/images/banner.svg'} alt={'banner'} width={216} height={190}/>
+          <Image priority={true} src={'/images/banner.svg'} alt={'banner'} width={216} height={190}/>
         </div>
         <div className={styles.root_description_container}>
           <div className={styles.description_container}>
