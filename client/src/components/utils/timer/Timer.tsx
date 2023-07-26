@@ -24,6 +24,7 @@ export const Timer = (props: Props): ReactElement => {
     if (timer > time / 2) return 'timer_start';
     else if (timer > 0 && timer <= time / 2) return 'timer_half';
     else if (timer <= 0) return 'timer_end';
+    else return '';
   }
 
   return (
