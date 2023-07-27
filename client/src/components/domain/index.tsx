@@ -4,8 +4,14 @@ import {Icon} from "@components/common/icon/Icon";
 import {Button} from "@components/common/button/Button";
 import {Typography} from "@components/common/typography/Typography";
 import styles from './index.module.scss';
+import {useRouter} from "next/router";
 
 export const Root = (): ReactElement => {
+  const router = useRouter();
+
+  const onClickHandlerPlayQuiz = async () => {
+    await router.push('/quizzes/network')
+  }
   return (
     <div className={styles.root_container}>
       <section className={styles.root_items_container}>
@@ -29,7 +35,7 @@ export const Root = (): ReactElement => {
             </div>
           </div>
           <div>
-            <Button className={styles.quiz_start_button} variant={'primary-rounded'}
+            <Button className={styles.quiz_start_button} variant={'primary-rounded'} onClick={onClickHandlerPlayQuiz}
                     icon={<Icon type={"open-book"} width={20} height={20}/>}>
               <Typography className={'ml-8'} color={'white'} variant={'body2'} weight={'bold'}>
                 퀴즈 풀기
