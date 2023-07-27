@@ -1,11 +1,14 @@
-import React, {ReactElement, useEffect, useRef} from "react";
+import React, {ReactElement, useEffect, useRef, useState} from "react";
 import styles from './SideMenu.module.scss';
 import classNames from "classnames";
-import {useAppDispatch} from "@hooks/reduxHooks";
+import {useAppDispatch, useAppSelector} from "@hooks/reduxHooks";
 import {setSideBarIsOpen} from "@store/slice/utilSlice";
 import {Button} from "@components/common/button/Button";
 import {Icon} from "@components/common/icon/Icon";
 import {GithubButton} from "@components/utils/oauth/github/GithubButton";
+import {NotePenIcon} from "@components/common/icon/custom/NotePenIcon";
+import {DocumentIcon} from "@components/common/icon/custom/DocumentIcon";
+import {StartIcon} from "@components/common/icon/custom/StartIcon";
 
 interface Props {
   isOpen: boolean;
@@ -13,6 +16,7 @@ interface Props {
 
 export const SideMenu = (props: Props): ReactElement => {
   const dispatch = useAppDispatch();
+  const {isLogin} = useAppSelector((state) => state.auth);
   const {isOpen = false} = props;
   const ele = useRef<HTMLDivElement>(null)
 
@@ -34,7 +38,7 @@ export const SideMenu = (props: Props): ReactElement => {
       if (!elements) closeSideMenuButtonHandler();
     }
   }
-  
+
   return (
     <aside onClick={outerClickEvent} className={classNames(styles.side_menu, !isOpen && styles.hide)}>
       <div ref={ele} className={styles.side_menu_container}>
@@ -44,26 +48,33 @@ export const SideMenu = (props: Props): ReactElement => {
           </Button>
         </div>
         <div className={styles.side_menu_top}>
-          <div className={styles.github_button_wrapper}>
-            <GithubButton/>
-          </div>
+          {isLogin ? (
+            <div>
+              로그인 성공 예시
+            </div>
+          ) : (
+            <div className={styles.github_button_wrapper}>
+              <GithubButton/>
+            </div>
+          )}
         </div>
 
         <hr/>
-
-        <div className={styles.side_menu_body}>
-          <ul className={styles.menu_items_container}>
-            <li>
-              <Icon type={'star'} width={28} height={28}/>
-            </li>
-            <li>
-              <Icon type={'document'} width={28} height={28}/>
-            </li>
-            <li>
-              <Icon type={'pennote'} width={28} height={28}/>
-            </li>
-          </ul>
-        </div>
+        {isLogin && (
+          <div className={styles.side_menu_body}>
+            <ul className={styles.menu_items_container}>
+              <li>
+                <StartIcon width={28} height={28}/>
+              </li>
+              <li>
+                <DocumentIcon width={28} height={28}/>
+              </li>
+              <li>
+                <NotePenIcon width={28} height={28}/>
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
     </aside>
   )

@@ -33,4 +33,3 @@ export const UtilSlice = createSlice({
 });
 
 export const {setSideBarIsOpen} = UtilSlice.actions;
-export default UtilSlice;

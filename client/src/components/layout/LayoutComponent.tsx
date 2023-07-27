@@ -3,7 +3,7 @@ import {Header} from "@components/layout/header/Header";
 import styles from "./LayoutComponent.module.scss";
 import {MetaComponent} from "@components/layout/header/MetaComponent";
 import {Footer} from "./footer/Footer";
-import {SideMenu} from "@components/ui/side-bar/SideMenu";
+import {SideMenu} from "@components/ui/side-menu/SideMenu";
 import {useAppSelector} from "@hooks/reduxHooks";
 
 interface Props {
