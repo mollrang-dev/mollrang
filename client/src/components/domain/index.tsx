@@ -1,14 +1,14 @@
-import { ReactElement, useEffect } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import Image from "next/image";
 import { Icon } from "@components/common/icon/Icon";
 import { Button } from "@components/common/button/Button";
 import { Typography } from "@components/common/typography/Typography";
 import styles from "./index.module.scss";
-import { useRouter } from "next/router";
 import { axiosInstance } from "@libs/axios";
+import { Modal } from "@components/common/modal/Modal";
 
 export const Root: React.FC = (): ReactElement => {
-  const router = useRouter();
+  const [selectQuiz, setSelectQuiz] = useState<boolean>(false);
 
   useEffect(() => {
     test();
@@ -20,8 +20,14 @@ export const Root: React.FC = (): ReactElement => {
   };
 
   const onClickHandlerPlayQuiz = async () => {
-    await router.push("/quizzes/network");
+    setSelectQuiz(true);
+    console.log(selectQuiz);
   };
+
+  const close = () => {
+    setSelectQuiz(!selectQuiz);
+  };
+
   return (
     <div className={styles.root_container}>
       <section className={styles.root_items_container}>
@@ -71,6 +77,9 @@ export const Root: React.FC = (): ReactElement => {
               </Typography>
             </Button>
           </div>
+          <Modal isOpen={selectQuiz} onRequestClose={close}>
+            문제 선택
+          </Modal>
         </div>
       </section>
       <hr />
