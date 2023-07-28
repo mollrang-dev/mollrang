@@ -10,6 +10,7 @@ import {
 } from '@app/share-library/common/setting';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ThrottlerModule } from '@nestjs/throttler';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { ThrottlerModule } from '@nestjs/throttler';
     }),
     CacheModule.register(CACHE_CONFIG),
     ThrottlerModule.forRoot(THROTTLER_CONFIG),
+    AuthModule,
   ],
   providers: [ShareLibraryService],
   exports: [ShareLibraryService],
