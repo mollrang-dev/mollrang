@@ -2,8 +2,26 @@ import { ConfigService } from '@nestjs/config';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 export const CONFIG_OPTION = () => {
-  const isProduction = process.env.NODE_ENV === 'production';
-  const envFilePath = isProduction ? '.env.prod' : '.env.local';
+  const env = process.env.NODE_ENV || 'development';
+  let envFilePath = '.env';
+  switch (env) {
+    case 'development': {
+      envFilePath = '.env.dev';
+      break;
+    }
+    case 'production': {
+      envFilePath = '.env.prod';
+      break;
+    }
+    case 'test': {
+      envFilePath = '.env.test';
+      break;
+    }
+    default: {
+      envFilePath = '.env.local';
+      break;
+    }
+  }
   return {
     isGlobal: true,
     envFilePath: envFilePath,
