@@ -5,7 +5,7 @@
   height: 40px;
 
   .progressbar {
-    width: 50%;
+    width: 80%;
     appearance: none;
   }
 
@@ -17,10 +17,9 @@
 
   .progressbar::-webkit-progress-value {
     border-radius: 10px;
-    transition: all .3s ease;
-    background: #1D976C;
+    transition: all 0.3s ease;
+    background: #1d976c;
     background: -webkit-linear-gradient(to right, #ccffde, $primary);
     background: linear-gradient(to right, #ccffde, $primary);
   }
 }
-
