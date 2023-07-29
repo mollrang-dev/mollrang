@@ -9,6 +9,10 @@ module.exports = {
         destination: "/",
       },
       {
+        source: "/quizzes",
+        destination: "/quizes",
+      },
+      {
         source: "/quizzes/:quizId",
         destination: "/quizes/:quizId",
       },
