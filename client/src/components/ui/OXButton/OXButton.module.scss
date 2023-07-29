@@ -1,0 +1,21 @@
+@mixin defaultButton {
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-shadow: 0 0 4px 0 rgba(47, 47, 47, 0.5);
+  width: min(25vw, 130px);
+  height: min(25vw, 130px);
+
+  &:hover {
+    filter: brightness(95%);
+  }
+}
+
+.O {
+  @include defaultButton;
+  background-color: $primary;
+}
+
+.X {
+  @include defaultButton;
+  background-color: $white;
+}

@@ -1,0 +1,18 @@
+.quiz_page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+
+  &_container {
+    padding: 0.8em 0.25em;
+    width: 100%;
+    max-width: 660px;
+    height: 100%;
+    margin: auto;
+    border: 1px solid $primary;
+    border-radius: 10px;
+  }
+}
