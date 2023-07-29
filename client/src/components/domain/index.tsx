@@ -1,27 +1,18 @@
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement, useState } from "react";
 import Image from "next/image";
 import { Icon } from "@components/common/icon/Icon";
 import { Button } from "@components/common/button/Button";
 import { Typography } from "@components/common/typography/Typography";
 import styles from "./index.module.scss";
-import { axiosInstance } from "@libs/axios";
 import { Modal } from "@components/common/modal/Modal";
+import { SelectedQuiz } from "./quizzes/selected-quiz/SelectedQuiz";
 
 export const Root: React.FC = (): ReactElement => {
   const [selectQuiz, setSelectQuiz] = useState<boolean>(false);
 
-  useEffect(() => {
-    test();
-  }, []);
-
-  const test = async () => {
-    const { data } = await axiosInstance.get("/quizzes?size=5");
-    console.log(data);
-  };
-
+  
   const onClickHandlerPlayQuiz = async () => {
     setSelectQuiz(true);
-    console.log(selectQuiz);
   };
 
   const close = () => {
@@ -78,7 +69,7 @@ export const Root: React.FC = (): ReactElement => {
             </Button>
           </div>
           <Modal isOpen={selectQuiz} onRequestClose={close}>
-            문제 선택
+            <SelectedQuiz />
           </Modal>
         </div>
       </section>

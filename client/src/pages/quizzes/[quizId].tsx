@@ -2,7 +2,7 @@ import React, {ReactElement} from "react";
 import {GetServerSideProps, InferGetServerSidePropsType} from "next";
 import {Timer} from "@components/utils/timer/Timer";
 import withGetServerSideProps from "@utils/withGetServerSideProps";
-import {ButtonGroup} from "@components/domain/quizzes/ButtonGroup/ButtonGroup";
+import {ButtonGroup} from "@components/domain/quizzes/button-group/ButtonGroup";
 import {QuestionForm} from "@components/domain/quizzes/question-form/QuestionForm";
 import styles from './QuizPage.module.scss';
 
