@@ -1,6 +1,5 @@
 import NextAuth from 'next-auth';
 import GithubProvider from 'next-auth/providers/github';
-import CredentialsProvider from 'next-auth/providers/Credentials';
 
 export default NextAuth({
   providers: [
@@ -32,5 +31,5 @@ export default NextAuth({
       return session;
     },
   },
-  secret: process.env.NEXT_PUBLIC_SECRET_KEY,
+  secret: process.env.NEXT_PUBLIC_OAUTH_SECRET,
 });

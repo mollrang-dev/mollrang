@@ -19,7 +19,19 @@ export type Variant =
   | 'body2'
   | 'caption'
 export type FontWeight = 'thin' | 'light' | 'regular' | 'medium' | 'bold'
-export type FontColor = 'black100' | 'black200' | 'black300' | 'black400' | 'black500' | 'gray100' | 'gray700'| 'gray900' | 'primary' | 'white'
+export type FontColor =
+  'black100'
+  | 'black200'
+  | 'black300'
+  | 'black400'
+  | 'black500'
+  | 'gray100'
+  | 'gray700'
+  | 'gray750'
+  | 'gray800'
+  | 'gray900'
+  | 'primary'
+  | 'white'
 
 export const Typography = (props: Props): ReactElement => {
   const {

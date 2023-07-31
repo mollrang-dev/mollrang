@@ -15,6 +15,8 @@ type IconType =
   | 'question'
   | 'O'
   | 'X'
+  | 'thumbs-up'
+  | 'wrong-note'
 
 interface Props extends ComponentProps<'span'> {
   type: IconType | string;

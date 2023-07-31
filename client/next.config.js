@@ -21,7 +21,7 @@ module.exports = {
   images: {
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    domains: ["img.shields.io", "picsum.photos"],
+    domains: ["img.shields.io", "picsum.photos", "avatars.githubusercontent.com"],
     remotePatterns: [
       {
         protocol: "https",
@@ -34,6 +34,12 @@ module.exports = {
         hostname: "picsum.photos",
         port: "",
         pathname: "/400/**",
+      },
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+        port: "",
+        pathname: "/u/**",
       },
     ],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -78,6 +84,7 @@ module.exports = {
     "^@interfaces/(.*)$": "<rootDir>/interfaces/$1",
     "^@images/(.*)$": "<rootDir>/images/$1",
     "^@assets/(.*)$": "<rootDir>/assets/$1",
+    "^@containers/(.*)$": "<rootDir>/containers/$1",
   },
   trailingSlash: true,
   swcMinify: true,

@@ -6,7 +6,7 @@ import {QueryClientProvider, Hydrate} from "@tanstack/react-query";
 import {ReactQueryDevtools} from "@tanstack/react-query-devtools";
 import {queryClient} from "@libs/tanstack";
 import {NextComponentType} from "next";
-import React from "react";
+import React, {useState} from "react";
 import {wrapper} from "@store/index";
 import {SessionProvider} from 'next-auth/react';
 
@@ -14,7 +14,7 @@ const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
                                                                          Component,
                                                                          pageProps,
                                                                        }) => {
-  const [queryState] = React.useState(() => queryClient);
+  const [queryState] = useState(() => queryClient);
 
   return (
     <>
@@ -41,7 +41,6 @@ App.getInitialProps = async ({
   if (Component.getInitialProps) {
     pageProps = await Component.getInitialProps(ctx);
   }
-
   return {pageProps};
 };
 export default wrapper.withRedux(App);

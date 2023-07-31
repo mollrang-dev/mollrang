@@ -38,7 +38,8 @@
       "@styles/*": ["styles/*"],
       "@interfaces/*": ["interfaces/*"],
       "@images/*": ["../../public/images/*"],
-      "@assets/*": ["assets/*"]
+      "@assets/*": ["assets/*"],
+      "@containers/*": ["containers/*"]
     },
   },
   "include": ["next-env.d.ts", "src", "**/*.ts", "**/*.tsx", "types/**/*.ts"], // 컴파일 포함

@@ -1,5 +1,4 @@
 import {ReactElement, ReactNode} from "react";
-import {Typography} from "@components/common/typography/Typography";
 
 interface Props {
   children: ReactNode

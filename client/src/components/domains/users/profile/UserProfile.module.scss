@@ -1,0 +1,12 @@
+.user_profile {
+  .profile_container {
+    display: flex;
+
+    .profile_img_wrapper {
+      .user_profile_img {
+        border-radius: 50%;
+      }
+    }
+
+  }
+}
