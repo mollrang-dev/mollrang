@@ -4,9 +4,20 @@ import {Icon} from "@components/common/icon/Icon";
 import {Typography} from "@components/common/typography/Typography";
 import {useAppDispatch} from "@hooks/reduxHooks";
 import {setLogin} from "@store/slice/authSlice";
+import {signIn, signOut, useSession} from "next-auth/react";
 
 export const GithubButton = (): ReactElement => {
   const dispatch = useAppDispatch();
+  const {data: session} = useSession();
+
+  const login = async () => {
+    await signIn('github');
+  };
+
+  const logout = async () => {
+    await signOut();
+  };
+
   const githubLogin = () => {
     try {
       dispatch(setLogin(true))
