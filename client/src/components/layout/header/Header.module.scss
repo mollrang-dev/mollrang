@@ -6,27 +6,12 @@
   left: 0;
   background-color: $white;
   box-shadow: 0 4px 4px 0 rgba(233, 233, 233, 0.5);
+  z-index: 1;
 
   &_container {
     display: flex;
     justify-content: space-between;
     padding: 1em;
     align-items: center;
-  }
-
-  &_menu {
-    display: flex;
-
-    li {
-      margin-right: 1em;
-    }
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .header {
-    &_menu {
-      display: none;
-    }
   }
 }

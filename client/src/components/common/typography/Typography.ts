@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import styles from './Typography.module.scss'
-import React, { ComponentProps, ReactElement } from 'react'
+import React, {ComponentProps, ReactElement} from 'react'
 
 interface Props extends ComponentProps<'p'> {
   variant?: Variant
@@ -18,15 +18,15 @@ export type Variant =
   | 'body1'
   | 'body2'
   | 'caption'
-export type FontWeight = 'regular' | 'medium' | 'semibold' | 'bold'
-export type FontColor = 'black100' | 'black200' | 'black300' | 'gray100' | 'primary' | 'white'
+export type FontWeight = 'thin' | 'light' | 'regular' | 'medium' | 'bold'
+export type FontColor = 'black100' | 'black200' | 'black300' | 'black400' | 'black500' | 'gray100' | 'gray700'| 'gray900' | 'primary' | 'white'
 
 export const Typography = (props: Props): ReactElement => {
   const {
     className,
     variant = 'body1',
     weight = 'regular',
-    color = 'black',
+    color = 'black100',
     children,
     as,
     ...rest

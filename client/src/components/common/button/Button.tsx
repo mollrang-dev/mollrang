@@ -1,4 +1,4 @@
-import { ComponentProps, ReactElement } from "react";
+import {ComponentProps, ReactElement} from "react";
 import styles from "./Button.module.scss";
 import classNames from "classnames";
 
@@ -32,6 +32,7 @@ export const Button = (props: ButtonProps): ReactElement => {
       {...rest}
       type={type}
     >
+      {icon}
       {children}
     </button>
   );

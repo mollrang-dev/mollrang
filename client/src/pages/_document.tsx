@@ -10,9 +10,10 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body>
-      <Main />
-      <NextScript />
+      <body className={"scroll"}>
+        <Main />
+        <div id="modal" />
+        <NextScript />
       </body>
     </Html>
   );
