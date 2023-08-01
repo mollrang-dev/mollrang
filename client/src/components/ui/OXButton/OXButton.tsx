@@ -6,7 +6,6 @@ type ButtonVariant = 'O' | 'X'
 
 interface ButtonProps extends ComponentProps<"button"> {
   variant: ButtonVariant;
-  onClickEvent: () => void;
 }
 
 export const OXButton = (props: ButtonProps): ReactElement => {
