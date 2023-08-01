@@ -3,7 +3,7 @@ import {getToken} from 'next-auth/jwt';
 
 const secret = process.env.NEXT_PUBLIC_SECRET_KEY;
 
-export async function middleware(req: NextRequest, event: NextFetchEvent): Promise<Response | undefined> | Response | undefined {
+export async function middleware(req: NextRequest, event: NextFetchEvent): Promise<Response> {
   try {
     const token = await getToken({req, secret, raw: true});
     const {pathname} = req.nextUrl
