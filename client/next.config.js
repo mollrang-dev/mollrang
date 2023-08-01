@@ -8,10 +8,10 @@ module.exports = {
         source: "/",
         destination: "/",
       },
-      // {
-      //   source: "/quizzes",
-      //   destination: "/quizes",
-      // },
+      {
+        source: "/quizzes",
+        destination: "/quizzes",
+      },
       // {
       //   source: "/quizzes/:quizId",
       //   destination: "/quizes/:quizId",
