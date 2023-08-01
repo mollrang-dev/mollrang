@@ -3,7 +3,7 @@ import {Icon} from "@components/common/icon/Icon";
 import {Typography} from "@components/common/typography/Typography";
 import {Button} from "@components/common/button/Button";
 import React, {ReactElement, useState} from "react";
-import {useSession} from "next-auth/react";
+import {signIn, useSession} from "next-auth/react";
 import {SelectedQuiz} from "@components/domains/quizzes/selected-quiz/SelectedQuiz";
 import {Modal} from "@components/common/modal/Modal";
 
@@ -12,8 +12,10 @@ export const PlayQuizButton = (): ReactElement => {
   const [selectQuiz, setSelectQuiz] = useState<boolean>(false);
 
   const onClickHandlerPlayQuiz = async () => {
-    alert('로그인하지 않았다면 로그인으로 넘어가도록')
-    setSelectQuiz(true);
+    if (session)
+      setSelectQuiz(true);
+    else
+      await signIn('github')
   };
 
   const close = () => {

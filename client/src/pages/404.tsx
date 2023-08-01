@@ -1,11 +1,16 @@
-import { Button } from "@components/common/button/Button";
-import { Typography } from "@components/common/typography/Typography";
-import { NextPage } from "next";
+import {Button} from "@components/common/button/Button";
+import {Typography} from "@components/common/typography/Typography";
+import {NextPage} from "next";
 import Image from "next/image";
-import { ReactElement } from "react";
+import {ReactElement} from "react";
 import styles from "@styles/pages/404Page.module.scss";
+import {useRouter} from "next/router";
 
 const Error404Page: NextPage = (): ReactElement => {
+  const router = useRouter();
+  const redirectHome = async () => {
+    await router.replace('/');
+  }
   return (
     <div className={styles.page_404}>
       <picture>
@@ -30,9 +35,9 @@ const Error404Page: NextPage = (): ReactElement => {
           페이지가 존재하지 않거나, 접근할 수 없는 페이지 입니다.
         </Typography>
       </section>
-      <Button variant="primary-outline" className="mt-36">
+      <Button variant="primary-outline" className="mt-36" onClick={redirectHome}>
         <Typography as="span" weight="bold" color="primary">
-          이전 페이지로 이동
+          돌아가기
         </Typography>
       </Button>
     </div>

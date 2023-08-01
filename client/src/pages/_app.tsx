@@ -19,16 +19,16 @@ const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
   return (
     <>
       <ErrorBoundary>
-        <QueryClientProvider client={queryState}>
-          <Hydrate state={pageProps.dehydratedState}>
-            <SessionProvider session={pageProps.session}>
+        <SessionProvider session={pageProps.session}>
+          <QueryClientProvider client={queryState}>
+            <Hydrate state={pageProps.dehydratedState}>
               <LayoutComponent>
                 <Component {...pageProps} />
               </LayoutComponent>
-            </SessionProvider>
-            <ReactQueryDevtools initialIsOpen={false}/>
-          </Hydrate>
-        </QueryClientProvider>
+              <ReactQueryDevtools initialIsOpen={false}/>
+            </Hydrate>
+          </QueryClientProvider>
+        </SessionProvider>
       </ErrorBoundary>
     </>
   );

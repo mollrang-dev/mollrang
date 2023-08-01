@@ -1,4 +1,4 @@
-import React, {ReactElement} from "react";
+import React, {ReactElement, useEffect} from "react";
 import Image from "next/image";
 import {Icon} from "@components/common/icon/Icon";
 import {Typography} from "@components/common/typography/Typography";
