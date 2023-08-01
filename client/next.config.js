@@ -2,22 +2,22 @@
 const path = require("path");
 
 module.exports = {
-  async rewrites() {
-    return [
-      {
-        source: "/",
-        destination: "/",
-      },
-      {
-        source: "/quizzes",
-        destination: "/quizzes",
-      },
-      // {
-      //   source: "/quizzes/:quizId",
-      //   destination: "/quizes/:quizId",
-      // },
-    ];
-  },
+  // async rewrites() {
+  //   return [
+  //     {
+  //       source: "/",
+  //       destination: "/",
+  //     },
+  //     {
+  //       source: "/quizzes",
+  //       destination: "/quizzes",
+  //     },
+  //     // {
+  //     //   source: "/quizzes/:quizId",
+  //     //   destination: "/quizes/:quizId",
+  //     // },
+  //   ];
+  // },
   images: {
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
