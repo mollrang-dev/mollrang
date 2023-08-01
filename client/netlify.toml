@@ -1,6 +1,6 @@
 [build]
 command = "next build"
-publish = "client/.next"
+publish = ".next"
 
 [[redirects]]
   from = "/*"
