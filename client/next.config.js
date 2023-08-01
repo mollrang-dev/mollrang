@@ -2,26 +2,26 @@
 const path = require("path");
 
 module.exports = {
-  experimental: {
-    redirects() {
-      const redirects = [
-        {
-          // Redirect root link with trailing slash to non-trailing slash, avoids 404 - See https://github.com/vercel/next.js/discussions/10651#discussioncomment-8270
-          source: '/:locale/',
-          destination: '/:locale',
-          permanent: process.env.NEXT_PUBLIC_APP_STAGE !== 'development', // Do not use permanent redirect locally to avoid browser caching when working on it
-        },
-        {
-          // Redirect link with trailing slash to non-trailing slash (any depth), avoids 404 - See https://github.com/vercel/next.js/discussions/10651#discussioncomment-8270
-          source: '/:locale/:path*/',
-          destination: '/:locale/:path*',
-          permanent: true
-        },
-      ];
-
-      return redirects;
-    },
-  },
+  // experimental: {
+  //   redirects() {
+  //     const redirects = [
+  //       {
+  //         // Redirect root link with trailing slash to non-trailing slash, avoids 404 - See https://github.com/vercel/next.js/discussions/10651#discussioncomment-8270
+  //         source: '/:locale/',
+  //         destination: '/:locale',
+  //         permanent: process.env.NEXT_PUBLIC_APP_STAGE !== 'development', // Do not use permanent redirect locally to avoid browser caching when working on it
+  //       },
+  //       {
+  //         // Redirect link with trailing slash to non-trailing slash (any depth), avoids 404 - See https://github.com/vercel/next.js/discussions/10651#discussioncomment-8270
+  //         source: '/:locale/:path*/',
+  //         destination: '/:locale/:path*',
+  //         permanent: true
+  //       },
+  //     ];
+  //
+  //     return redirects;
+  //   },
+  // },
   // async rewrites() {
   //   return [
   //     {

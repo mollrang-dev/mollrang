@@ -3,5 +3,10 @@
     base = "/client"
     publish = "/.next"
 
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/next_api_autoRedirectToLocalisedPage"
+  status = 200
+
 [[plugins]]
     package = "@netlify/plugin-nextjs"
