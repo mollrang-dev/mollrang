@@ -6,12 +6,13 @@ type ButtonVariant = 'O' | 'X'
 
 interface ButtonProps extends ComponentProps<"button"> {
   variant: ButtonVariant;
+  onClickEvent: () => void;
 }
 
 export const OXButton = (props: ButtonProps): ReactElement => {
-  const {variant} = props;
+  const {variant, ...rest} = props;
   return (
-    <button className={styles[variant]}>
+    <button className={styles[variant]} {...rest}>
       <Icon type={variant} width={65} height={65}/>
     </button>
   )

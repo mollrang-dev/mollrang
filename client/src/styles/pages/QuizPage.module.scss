@@ -14,5 +14,13 @@
     margin: auto;
     border: 1px solid $primary;
     border-radius: 10px;
+
+    .quiz_form {
+      display: none;
+    }
+
+    .quiz_show {
+      display: inline-block;
+    }
   }
 }
