@@ -5,8 +5,8 @@
 
 [build]
   command = "npm run build"
-  base = "/client"
-  publish = "/out"
+  base = "client"
+  publish = "out"
 
 [[redirects]]
   from = "/*"
