@@ -5,16 +5,13 @@
 
 [build]
   command = "npm run build"
-  publish = "out"
+  base = "/client"
+  publish = "/out"
 
-# [[redirects]]
-#   from = "/*"
-#   to = "/:split"
-#   status = 200
+[[redirects]]
+  from = "/*"
+  to = "/_next/static"
+  status = 200
 
-# [[redirects]]
-#     from = "/*"
-#     to = "/.netlify/functions/serverless"
-#     status = 200
 [[plugins]]
   package = "@netlify/plugin-nextjs"
