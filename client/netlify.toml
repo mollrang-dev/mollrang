@@ -5,7 +5,7 @@
 
 [[redirects]]
   from = "/*"
-  to = "https://mollrang.netlify.app/:splat"
+  to = "/.next/static"
   status = 200
 
 [[plugins]]
