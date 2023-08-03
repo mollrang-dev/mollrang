@@ -5,8 +5,13 @@
 
 [[redirects]]
   from = "/*"
-  to = "/.next/static"
+  to = "/:split"
   status = 200
+
+# [[redirects]]
+#     from = "/*"
+#     to = "/.netlify/functions/serverless"
+#     status = 200
 
 [[plugins]]
     package = "@netlify/plugin-nextjs"
