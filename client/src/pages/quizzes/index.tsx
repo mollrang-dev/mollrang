@@ -68,6 +68,7 @@ const PlayQuizPage: React.FC<Props> = (props): ReactElement => {
         <div className={styles.quiz_page_container}>
           <Timer time={60}/>
           {
+            data &&
             data.map((value: Quiz.ListInformation, index) => {
               return (
                 <div key={value.quizId}
