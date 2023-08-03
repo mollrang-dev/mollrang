@@ -1,12 +1,12 @@
-# [build]
-#   command = "next build"
-#   base = "/client"
-#   publish = "/.next"
-
 [build]
-  command = "npm run build"
-  base = "client"
-  publish = "out"
+  command = "next build"
+  base = "/client"
+  publish = "/.next"
+
+# [build]
+#   command = "npm run build"
+#   base = "client"
+#   publish = ".ㅜ"
 
 [[redirects]]
   from = "/*"
