@@ -1,14 +1,14 @@
 .question_form {
   width: 100%;
-  max-height: 240px;
+  min-height: 400px;
   height: 100%;
   padding: 1em;
 
   .question_label {
-    top: 220px;
+    top: 34px;
     border-radius: 50%;
     width: fit-content;
-    position: absolute;
+    position: relative;
     height: 40px;
     bottom: 62px;
     background: $primary;

@@ -4,7 +4,7 @@ import {queryClient} from "@libs/tanstack";
 import {dehydrate, useQuery} from "@tanstack/react-query";
 import withGetServerSideProps from "@utils/withGetServerSideProps";
 import {GetServerSideProps} from "next";
-import React, {ReactElement, useEffect, useState} from "react";
+import React, {ReactElement, useEffect} from "react";
 import {QuestionForm} from "@components/domains/quizzes/question-form/QuestionForm";
 import {Quiz} from "@interfaces/quiz";
 import {Timer} from "@components/utils/timer/Timer";
@@ -14,6 +14,7 @@ import classNames from "classnames";
 import {useAppDispatch, useAppSelector} from "@hooks/reduxHooks";
 import {setCurrentStep} from "@store/slice/quizSlice";
 import {useRouter} from "next/router";
+import {QuizCompleted} from "@components/domains/quizzes/QuizCompleted";
 
 interface Props {
   size: number;
@@ -63,20 +64,23 @@ const PlayQuizPage: React.FC<Props> = (props): ReactElement => {
 
   return (
     <div className={styles.quiz_page}>
-      <div className={styles.quiz_page_container}>
-        <Timer time={60}/>
-        {
-          data.map((value: Quiz.ListInformation, index) => {
-            return (
-              <div key={value.quizId}
-                   className={classNames(index + 1 === currentStep && styles.quiz_show, styles.quiz_form)}>
-                <QuestionForm questionNumber={index + 1} quizLists={value}/>
-              </div>
-            )
-          })
-        }
-        <ButtonGroup/>
-      </div>
+      {currentStep <= size && (
+        <div className={styles.quiz_page_container}>
+          <Timer time={60}/>
+          {
+            data.map((value: Quiz.ListInformation, index) => {
+              return (
+                <div key={value.quizId}
+                     className={classNames(index + 1 === currentStep && styles.quiz_show, styles.quiz_form)}>
+                  <QuestionForm questionNumber={index + 1} quizLists={value}/>
+                </div>
+              )
+            })
+          }
+          <ButtonGroup/>
+        </div>
+      )}
+      {currentStep > size && (<QuizCompleted/>)}
     </div>
   );
 };

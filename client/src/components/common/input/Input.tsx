@@ -1,6 +1,7 @@
-import { ChangeEvent, ComponentProps, ReactElement } from 'react'
+import {ChangeEvent, ComponentProps, ReactElement, useEffect, useState} from 'react'
 import styles from './Input.module.scss'
-import { Typography } from '@components/common/typography/Typography'
+import {Typography} from '@components/common/typography/Typography'
+import classNames from "classnames";
 
 type InputValue = string | number | ReadonlyArray<string>
 type InputChangeEvent = ChangeEvent<HTMLInputElement>
@@ -14,6 +15,10 @@ interface InputProps extends ComponentProps<'input'> {
 }
 
 export const Input = (props: InputProps): ReactElement => {
+  //TODO: Test code를 통과시킬려면 input 의 고유 state가 필요하다.
+  // 근데 고유 상태를 가지게 되면 value 초기화를 할 경우 input의 state로 함께 초기화를 해줘야 화면 상에서 Text가 사라진다.
+  // 그래서 state를 지웠던거였는데...흠
+  const [inputValue, setInputValue] = useState<string>('')
   const {
     variant = 'default',
     label,
@@ -27,19 +32,28 @@ export const Input = (props: InputProps): ReactElement => {
     ...rest
   } = props
 
+  useEffect(() => {
+    onChangeEvent();
+  }, [value])
+
+  const onChangeEvent = () => {
+    setInputValue(inputValue);
+  }
+
   const onChangeHandler = (event: InputChangeEvent): void => {
+    if (event.target.value) setInputValue(event.target.value)
     onChange && onChange(event)
   }
 
   return (
     <label className={styles.label} htmlFor={id}>
       <input
-        className={`${styles[variant]} ${className}`}
+        className={classNames(styles[variant], className)}
         disabled={disabled}
         id={id}
         placeholder={placeholder}
         type={type}
-        value={value}
+        value={inputValue}
         onChange={onChangeHandler}
         {...rest}
       />
