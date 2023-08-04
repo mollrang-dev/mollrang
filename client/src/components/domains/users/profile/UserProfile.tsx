@@ -15,7 +15,7 @@ export const UserProfile: React.FC<Props> = (props): ReactElement => {
   return (
     <div className={styles.user_profile}>
       <div className={styles.profile_container}>
-        <picture className={styles.profile_img_wrapper}>
+        <picture aria-label={'깃허브 사용자 프로필 이미지'} className={styles.profile_img_wrapper}>
           <Image className={styles.user_profile_img} src={profile.image} alt={profile.name}
                  width={80} height={80}/>
         </picture>

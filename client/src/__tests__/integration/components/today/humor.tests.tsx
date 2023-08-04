@@ -1,4 +1,4 @@
-import {render, screen} from "@testing-library/react";
+import {render, screen, waitFor} from "@testing-library/react";
 import {Humor} from "@components/today/humor/Humor";
 
 describe('/ Page Unit Test', () => {
@@ -10,7 +10,6 @@ describe('/ Page Unit Test', () => {
     }
 
     render(<Humor/>);
-
     const findTitle = await screen.findAllByText(mockData.title);
     screen.debug(findTitle)
     expect(findTitle).toHaveLength(1);

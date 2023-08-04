@@ -43,7 +43,7 @@ export const SideMenu = (props: Props): ReactElement => {
     <aside onClick={outerClickEvent} className={classNames(styles.side_menu, !isOpen && styles.hide)}>
       <div ref={ele} className={styles.side_menu_container}>
         <div className={styles.close_button_wrapper}>
-          <Button variant={'icon'} onClick={closeSideMenuButtonHandler}>
+          <Button aria-label={'사이드 메뉴 닫기'} variant={'icon'} onClick={closeSideMenuButtonHandler}>
             <Icon type={'exit'} width={30} height={30}/>
           </Button>
         </div>

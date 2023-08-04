@@ -1,24 +1,16 @@
 import styles from './Humor.module.scss';
-import React, {ReactElement, useEffect, useState} from "react";
+import React, {ReactElement, useState} from "react";
 import {Typography} from "@components/common/typography/Typography";
-import {axiosInstance} from "@libs/axios";
+import {useQueryTodayHumorLists} from "@hooks/queries/todayHooks";
 
-interface Humor {
+export interface HumorList {
   title: string;
   description: string;
 }
 
 export const Humor = (): ReactElement => {
-  const [humor, setHumor] = useState<Humor>({title: '', description: ''});
-
-  useEffect(() => {
-    load()
-  }, [])
-
-  const load = async () => {
-    const {data} = await axiosInstance.get('/today/humor');
-    setHumor(data);
-  }
+  const [humor, setHumor] = useState<HumorList>({title: '', description: ''})
+  useQueryTodayHumorLists().then((resolve) => setHumor(resolve));
 
   return (
     <div>
@@ -37,7 +29,7 @@ export const Humor = (): ReactElement => {
           color={"gray100"}
           weight={"bold"}
         >
-          {humor.title}
+          {humor && humor.title}
         </Typography>
         <br/>
         <Typography
@@ -46,7 +38,7 @@ export const Humor = (): ReactElement => {
           color={"primary"}
           weight={"bold"}
         >
-          {humor.description}
+          {humor && humor.description}
         </Typography>
       </div>
     </div>

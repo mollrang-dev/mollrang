@@ -30,12 +30,14 @@ export const PlayQuizButton = (): ReactElement => {
         variant={"primary-rounded"}
         onClick={onClickHandlerPlayQuiz}
         icon={<Icon type={"open-book"} width={20} height={20}/>}
+        aria-label={'퀴즈 풀기'}
       >
         <Typography
           className={"ml-8"}
           color={"white"}
           variant={"body2"}
           weight={"bold"}
+          aria-hidden="true"
         >
           퀴즈 풀기
         </Typography>

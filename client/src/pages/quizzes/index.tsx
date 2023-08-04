@@ -20,28 +20,6 @@ interface Props {
   size: number;
 }
 
-export const getServerSideProps: GetServerSideProps = withGetServerSideProps(
-  async (ctx) => {
-    try {
-      let {size} = ctx.query as { size: string };
-      if (!size) size = 5
-      await queryClient.prefetchQuery([QUERY_KEYS.QUIZ.LIST, size], () =>
-        getQuizLists(Number(size)),
-      );
-      return {
-        props: {
-          dehydratedState: dehydrate(queryClient),
-          size: size,
-        },
-      };
-    } catch (e) {
-      return {
-        props: {}
-      }
-    }
-  },
-);
-
 const PlayQuizPage: React.FC<Props> = (props): ReactElement => {
   const dispatch = useAppDispatch();
   const {currentStep} = useAppSelector((state) => state.quiz);
@@ -83,3 +61,25 @@ const PlayQuizPage: React.FC<Props> = (props): ReactElement => {
   );
 };
 export default PlayQuizPage;
+
+export const getServerSideProps: GetServerSideProps = withGetServerSideProps(
+  async (ctx) => {
+    try {
+      let {size} = ctx.query as { size: string };
+      if (!size) size = 5
+      await queryClient.prefetchQuery([QUERY_KEYS.QUIZ.LIST, size], () =>
+        getQuizLists(Number(size)),
+      );
+      return {
+        props: {
+          dehydratedState: dehydrate(queryClient),
+          size: size,
+        },
+      };
+    } catch (e) {
+      return {
+        props: {}
+      }
+    }
+  },
+);

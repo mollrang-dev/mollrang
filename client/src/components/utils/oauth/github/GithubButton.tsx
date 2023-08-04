@@ -16,7 +16,8 @@ export const GithubButton = (): ReactElement => {
   };
 
   return (
-    <button className={styles.github_button} type={'button'} onClick={session && session.user ? logout : login}>
+    <button aria-label={'깃허브 로그인'} className={styles.github_button} type={'button'}
+            onClick={session && session.user ? logout : login}>
       <Icon className={'mr-12'} type={"github"} width={20} height={20}/>
       <Typography color={'white'} weight={'bold'} as={'span'} variant={'caption'}>
         {session && session.user ? 'logout' : 'GitHub Login'}
