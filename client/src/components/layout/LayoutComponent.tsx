@@ -5,6 +5,7 @@ import {MetaComponent} from "@components/layout/header/MetaComponent";
 import {Footer} from "./footer/Footer";
 import {SideMenu} from "@components/ui/side-menu/SideMenu";
 import {useAppSelector} from "@hooks/reduxHooks";
+import {LoadingSpinner} from "@components/ui/spinner/LoadingSpinner";
 
 interface Props {
   children: ReactNode;
@@ -12,13 +13,14 @@ interface Props {
 
 export const LayoutComponent: React.FC<Props> = (props): ReactElement => {
   const {children} = props;
-  const {sideBarIsOpen} = useAppSelector((state) => state.utils);
+  const {sideBarIsOpen, isLoading} = useAppSelector((state) => state.utils);
 
   return (
     <>
       <MetaComponent/>
       <Header/>
       <SideMenu isOpen={sideBarIsOpen}/>
+      <LoadingSpinner isLoading={isLoading}/>
       <main className={styles.layout_container}>{children}</main>
       <Footer/>
     </>

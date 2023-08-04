@@ -9,8 +9,7 @@ import logger from 'redux-logger';
 import {UtilSlice, UtilState} from "@store/slice/utilSlice";
 import {AuthSlice, AuthState} from "@store/slice/authSlice";
 import {QuizSlice, QuizState} from "@store/slice/quizSlice";
-
-const debugOn = process.env.NODE_ENV === 'development';
+import {isProduction} from "@utils/common";
 
 export interface RootState {
   utils: UtilState;
@@ -37,7 +36,7 @@ const makeStore = () =>
 const store = makeStore();
 
 export const wrapper = createWrapper<AppStore>(makeStore, {
-  debug: debugOn
+  debug: isProduction()
 });
 
 export type AppStore = ReturnType<typeof makeStore>;

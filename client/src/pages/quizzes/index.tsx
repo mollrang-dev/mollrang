@@ -43,15 +43,13 @@ export const getServerSideProps: GetServerSideProps = withGetServerSideProps(
 );
 
 const PlayQuizPage: React.FC<Props> = (props): ReactElement => {
-  // Redux 로 교체
   const dispatch = useAppDispatch();
   const {currentStep} = useAppSelector((state) => state.quiz);
   const {size} = props;
+  const router = useRouter();
   const {data} = useQuery([QUERY_KEYS.QUIZ.LIST, size], () =>
     getQuizLists(size),
   );
-
-  const router = useRouter();
 
   useEffect(() => {
     resetQuizData();
@@ -68,7 +66,6 @@ const PlayQuizPage: React.FC<Props> = (props): ReactElement => {
         <div className={styles.quiz_page_container}>
           <Timer time={60}/>
           {
-            data &&
             data.map((value: Quiz.ListInformation, index) => {
               return (
                 <div key={value.quizId}

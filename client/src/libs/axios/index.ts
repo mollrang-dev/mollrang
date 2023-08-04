@@ -1,12 +1,14 @@
-import axios, { AxiosInstance, AxiosResponse, AxiosRequestConfig } from "axios";
+import axios, {AxiosInstance, AxiosResponse, AxiosRequestConfig} from "axios";
 import {
   AuthorizationException,
   ForbiddenException,
   NotAllowedMethodException,
   NotFoundException,
 } from "@utils/error/errorHandler";
+import {isProduction} from "@utils/common";
+import {LOCAL_HOST_API, PRODUCT_HOST_API} from "@constants/config";
 
-const baseURL = "http://localhost:3000/api";
+const baseURL = isProduction() ? PRODUCT_HOST_API : LOCAL_HOST_API;
 const instance: AxiosInstance = axios.create({
   baseURL,
   headers: {
@@ -37,7 +39,7 @@ instance.interceptors.response.use(
     return response;
   },
   (error) => {
-    const { response } = error;
+    const {response} = error;
     AxiosAuthInterceptor(response);
     return response;
   },

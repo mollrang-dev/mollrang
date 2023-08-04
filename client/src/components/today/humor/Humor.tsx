@@ -1,8 +1,25 @@
 import styles from './Humor.module.scss';
-import React, {ReactElement} from "react";
+import React, {ReactElement, useEffect, useState} from "react";
 import {Typography} from "@components/common/typography/Typography";
+import {axiosInstance} from "@libs/axios";
+
+interface Humor {
+  title: string;
+  description: string;
+}
 
 export const Humor = (): ReactElement => {
+  const [humor, setHumor] = useState<Humor>({title: '', description: ''});
+
+  useEffect(() => {
+    load()
+  }, [])
+
+  const load = async () => {
+    const {data} = await axiosInstance.get('/today/humor');
+    setHumor(data);
+  }
+
   return (
     <div>
       <Typography
@@ -20,7 +37,7 @@ export const Humor = (): ReactElement => {
           color={"gray100"}
           weight={"bold"}
         >
-          개발자들이 다크 모드를 쓰는 이유는???
+          {humor.title}
         </Typography>
         <br/>
         <Typography
@@ -29,7 +46,7 @@ export const Humor = (): ReactElement => {
           color={"primary"}
           weight={"bold"}
         >
-          밝으면 버그(bug)가 꼬여서... :)
+          {humor.description}
         </Typography>
       </div>
     </div>

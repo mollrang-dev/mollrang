@@ -3,7 +3,8 @@ if (typeof window === 'undefined') {
   server.then((s) => s.SERVER.listen())
 } else {
   const worker = import('./browser')
-  worker.then((w) => w.WORKER.start())
+  //worker -> server
+  worker.then((w) => w.WORKER.listen())
 }
 
 export {}

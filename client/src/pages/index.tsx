@@ -4,6 +4,11 @@ import {ReactElement} from "react";
 import withGetServerSideProps from "@utils/withGetServerSideProps";
 import {getSession} from "next-auth/react";
 
+const Home: NextPage = (): ReactElement => {
+  return <Root/>;
+};
+export default Home;
+
 export const getServerSideProps: GetServerSideProps = withGetServerSideProps(
   async (ctx) => {
     try {
@@ -23,9 +28,3 @@ export const getServerSideProps: GetServerSideProps = withGetServerSideProps(
     }
   },
 );
-
-
-const Home: NextPage = (): ReactElement => {
-  return <Root/>;
-};
-export default Home;
