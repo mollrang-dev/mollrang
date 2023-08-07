@@ -1,19 +1,19 @@
-import {LayoutComponent} from "@components/layout/LayoutComponent";
-import type {AppProps, AppContext, AppInitialProps} from "next/app";
+import { LayoutComponent } from "@components/layout/LayoutComponent";
+import type { AppProps, AppContext, AppInitialProps } from "next/app";
 import "@styles/_reset.scss";
 import ErrorBoundary from "@utils/error/errorBoundary";
-import {QueryClientProvider, Hydrate} from "@tanstack/react-query";
-import {ReactQueryDevtools} from "@tanstack/react-query-devtools";
-import {queryClient} from "@libs/tanstack";
-import {NextComponentType} from "next";
-import React, {useState} from "react";
-import {wrapper} from "@store/index";
-import {SessionProvider} from 'next-auth/react';
+import { QueryClientProvider, Hydrate } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { queryClient } from "@libs/tanstack";
+import { NextComponentType } from "next";
+import React, { useState } from "react";
+import { wrapper } from "@store/index";
+import { SessionProvider } from "next-auth/react";
 
 const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
-                                                                         Component,
-                                                                         pageProps,
-                                                                       }) => {
+  Component,
+  pageProps,
+}) => {
   const [queryState] = useState(() => queryClient);
 
   return (
@@ -25,7 +25,7 @@ const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
               <LayoutComponent>
                 <Component {...pageProps} />
               </LayoutComponent>
-              <ReactQueryDevtools initialIsOpen={false}/>
+              <ReactQueryDevtools initialIsOpen={false} />
             </Hydrate>
           </QueryClientProvider>
         </SessionProvider>
@@ -34,13 +34,13 @@ const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
   );
 };
 App.getInitialProps = async ({
-                               Component,
-                               ctx,
-                             }: AppContext): Promise<AppInitialProps> => {
+  Component,
+  ctx,
+}: AppContext): Promise<AppInitialProps> => {
   let pageProps = {};
   if (Component.getInitialProps) {
     pageProps = await Component.getInitialProps(ctx);
   }
-  return {pageProps};
+  return { pageProps };
 };
 export default wrapper.withRedux(App);
