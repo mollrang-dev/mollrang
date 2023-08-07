@@ -9,8 +9,7 @@ export interface HumorList {
 }
 
 export const Humor = (): ReactElement => {
-  const [humor, setHumor] = useState<HumorList>({title: '', description: ''})
-  useQueryTodayHumorLists().then((resolve) => setHumor(resolve));
+  const {data} = useQueryTodayHumorLists();
 
   return (
     <div>
@@ -28,8 +27,9 @@ export const Humor = (): ReactElement => {
           variant={"body1"}
           color={"gray100"}
           weight={"bold"}
+          data-testid={"humor-title"}
         >
-          {humor && humor.title}
+          {data && data.title}
         </Typography>
         <br/>
         <Typography
@@ -37,8 +37,9 @@ export const Humor = (): ReactElement => {
           variant={"body1"}
           color={"primary"}
           weight={"bold"}
+          data-testid={"humor-description"}
         >
-          {humor && humor.description}
+          {data && data.description}
         </Typography>
       </div>
     </div>
