@@ -1,7 +1,7 @@
-import styles from './Humor.module.scss';
-import React, {ReactElement, useState} from "react";
-import {Typography} from "@components/common/typography/Typography";
-import {useQueryTodayHumorLists} from "@hooks/queries/todayHooks";
+import styles from "./Humor.module.scss";
+import React, { ReactElement, useState } from "react";
+import { Typography } from "@components/common/typography/Typography";
+import { useQueryTodayHumorLists } from "@hooks/queries/todayHooks";
 
 export interface HumorList {
   title: string;
@@ -9,7 +9,7 @@ export interface HumorList {
 }
 
 export const Humor = (): ReactElement => {
-  const {data} = useQueryTodayHumorLists();
+  const { data } = useQueryTodayHumorLists();
 
   return (
     <div>
@@ -31,7 +31,7 @@ export const Humor = (): ReactElement => {
         >
           {data && data.title}
         </Typography>
-        <br/>
+        <br />
         <Typography
           className={"text-right"}
           variant={"body1"}
@@ -43,5 +43,5 @@ export const Humor = (): ReactElement => {
         </Typography>
       </div>
     </div>
-  )
-}
+  );
+};

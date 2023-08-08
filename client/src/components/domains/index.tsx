@@ -1,23 +1,25 @@
-import React, {ReactElement} from "react";
+import React, { ReactElement } from "react";
 import Image from "next/image";
-import {Icon} from "@components/common/icon/Icon";
-import {Typography} from "@components/common/typography/Typography";
+import { Icon } from "@components/common/icon/Icon";
+import { Typography } from "@components/common/typography/Typography";
 import styles from "./index.module.scss";
-import {useSession} from "next-auth/react";
-import {UserContainer} from "@containers/UserContainer";
-import {PlayQuizButton} from "@components/domains/quizzes/button/play/QuizButton";
-import {Humor} from "@components/today/humor/Humor";
+import { useSession } from "next-auth/react";
+import { UserContainer } from "@containers/UserContainer";
+import { PlayQuizButton } from "@components/domains/quizzes/button/play/QuizButton";
+import { Humor } from "@components/today/humor/Humor";
 
 export const Root: React.FC = (): ReactElement => {
-  const {data: session} = useSession();
+  const { data: session } = useSession();
 
   return (
     <div className={styles.root_container}>
       {session && session.user ? (
         <>
-          <section className={'mb-20'}>
-            <UserContainer/>
-            <PlayQuizButton/>
+          <section className={"mb-20"}>
+            <UserContainer profileComponentType="default" />
+            <div className={styles.play_quiz_wrapper}>
+              <PlayQuizButton />
+            </div>
           </section>
         </>
       ) : (
@@ -35,13 +37,17 @@ export const Root: React.FC = (): ReactElement => {
             <div className={styles.root_description_container}>
               <div className={styles.description_container}>
                 <div className={styles.description_1_wrapper}>
-                  <Icon type={"note"} width={36} height={36}/>
+                  <Icon type={"note"} width={36} height={36} />
                   <Typography color={"black500"} variant={"body1"}>
                     너 그거 알아?
                   </Typography>
                 </div>
                 <div className={styles.description_2_wrapper}>
-                  <Typography color={"primary"} variant={"body1"} weight={"bold"}>
+                  <Typography
+                    color={"primary"}
+                    variant={"body1"}
+                    weight={"bold"}
+                  >
                     몰랑
                   </Typography>
                   <Icon
@@ -53,16 +59,16 @@ export const Root: React.FC = (): ReactElement => {
                 </div>
               </div>
 
-              <PlayQuizButton/>
+              <PlayQuizButton />
             </div>
           </section>
         </>
       )}
 
-      <hr/>
+      <hr />
 
       <section>
-        <Humor/>
+        <Humor />
       </section>
     </div>
   );

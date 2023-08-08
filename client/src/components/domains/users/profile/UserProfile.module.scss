@@ -1,12 +1,19 @@
 .user_profile {
   .profile_container {
     display: flex;
+    justify-content: space-evenly;
 
     .profile_img_wrapper {
       .user_profile_img {
         border-radius: 50%;
       }
     }
+  }
 
+  .user_profile_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 1em;
   }
 }

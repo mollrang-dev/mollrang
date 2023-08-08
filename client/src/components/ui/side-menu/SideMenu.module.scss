@@ -19,6 +19,17 @@
     background-color: $primary;
     width: 300px;
 
+    .menu_items_wrapper {
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        p {
+          color: $primary;
+        }
+      }
+    }
+
     .close_button_wrapper {
       width: 100%;
       height: 60px;
@@ -41,18 +52,17 @@
       height: 100%;
 
       .menu_items_container {
-
         li {
           width: 100%;
           height: 100%;
           @include sideMenuPadding();
 
-
           &:hover {
             cursor: pointer;
             background-color: $white;
 
-            svg > g > path, svg > path {
+            svg > g > path,
+            svg > path {
               fill: $primary;
             }
           }

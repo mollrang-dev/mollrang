@@ -5,6 +5,12 @@
   max-width: 426px;
   margin: auto;
 
+  .play_quiz_wrapper {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em 5em;
+  }
+
   /**
   section 1 상단
    */
@@ -49,5 +55,4 @@
   /**
   section 2 피식 :)
    */
-
 }
