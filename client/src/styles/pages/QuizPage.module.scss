@@ -15,6 +15,10 @@
     border: 1px solid $primary;
     border-radius: 10px;
 
+    .quiz_form_container {
+      width: 100%;
+    }
+
     .quiz_form {
       display: none;
     }

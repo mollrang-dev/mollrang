@@ -1,10 +1,10 @@
-import styles from "@components/domains/quizzes/button/play/QuizButton.module.scss";
+import styles from "@components/quizzes/button/play/QuizButton.module.scss";
 import { Icon } from "@components/common/icon/Icon";
 import { Typography } from "@components/common/typography/Typography";
 import { Button } from "@components/common/button/Button";
 import React, { ReactElement, useState } from "react";
 import { signIn, useSession } from "next-auth/react";
-import { SelectedQuiz } from "@components/domains/quizzes/selected-quiz/SelectedQuiz";
+import { SelectedQuiz } from "@components/quizzes/selected-quiz/SelectedQuiz";
 import { Modal } from "@components/common/modal/Modal";
 
 export const PlayQuizButton = (): ReactElement => {

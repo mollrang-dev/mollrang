@@ -1,16 +1,16 @@
-import {FormUi} from "@components/ui/form/FormUi";
-import {ReactElement} from "react";
+import { FormUi } from "@components/ui/form/FormUi";
+import { ReactElement } from "react";
 import styles from "./QuestionForm.module.scss";
-import {Typography} from "@components/common/typography/Typography";
-import {Quiz} from "@interfaces/quiz";
+import { Typography } from "@components/common/typography/Typography";
+import { Quiz } from "@interfaces/quiz";
 
 interface Props {
   quizLists: Quiz.ListInformation;
-  questionNumber: number
+  questionNumber: number;
 }
 
 export const QuestionForm = (props: Props): ReactElement => {
-  const {quizLists, questionNumber} = props;
+  const { quizLists, questionNumber } = props;
   return (
     <div className={styles.question_form}>
       <FormUi>

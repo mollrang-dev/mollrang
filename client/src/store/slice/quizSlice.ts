@@ -1,5 +1,5 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {HYDRATE} from "next-redux-wrapper";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { HYDRATE } from "next-redux-wrapper";
 
 export interface QuizState {
   currentStep: number;
@@ -7,10 +7,10 @@ export interface QuizState {
 
 const initialState: QuizState = {
   currentStep: 1,
-}
+};
 
 export const QuizSlice = createSlice({
-  name: 'quiz',
+  name: "quiz",
   initialState,
   reducers: {
     setCurrentStep(state: QuizState, action: PayloadAction<number>) {
@@ -20,11 +20,11 @@ export const QuizSlice = createSlice({
       [HYDRATE]: (state, action) => {
         return {
           ...state,
-          ...action.payload.quiz
-        }
-      }
-    }
-  }
+          ...action.payload.quiz,
+        };
+      },
+    },
+  },
 });
 
-export const {setCurrentStep} = QuizSlice.actions;
+export const { setCurrentStep } = QuizSlice.actions;

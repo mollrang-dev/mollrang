@@ -1,6 +1,5 @@
 import { axiosInstance } from "@libs/axios";
 
-
 /**
  * ==============================
  * @description: Method GET
@@ -92,7 +91,7 @@ export const findOneQuizByQuizId = async ({
 
 /**
  * @description: 퀴즈 즐겨찾기
- * @param {type: string} quizId 
+ * @param {type: string} quizId
  */
 export const updateFavoriteQuizList = async (quizId: string) => {
   try {
@@ -100,11 +99,11 @@ export const updateFavoriteQuizList = async (quizId: string) => {
   } catch (e) {
     throw e;
   }
-}
+};
 
 /**
  * @description: 유저 정답 제출
- * @param quizId 
+ * @param quizId
  */
 export const insertQuizAnswer = async (quizId: string) => {
   try {
@@ -112,5 +111,4 @@ export const insertQuizAnswer = async (quizId: string) => {
   } catch (e) {
     throw e;
   }
-}
-
+};

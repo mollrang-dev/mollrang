@@ -1,4 +1,4 @@
-import { UserProfile } from "@components/domains/users/profile/UserProfile";
+import { UserProfile } from "@components/users/profile/UserProfile";
 import { useSession } from "next-auth/react";
 import { ReactElement } from "react";
 
