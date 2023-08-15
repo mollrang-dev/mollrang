@@ -30,13 +30,15 @@ const RootReducer = (state: RootState, action: AnyAction): CombinedState<RootSta
 const makeStore = () =>
   configureStore({
     reducer: RootReducer as Reducer<CombinedState<RootState>, AnyAction>,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger)
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+  
+    
   });
 
 const store = makeStore();
 
 export const wrapper = createWrapper<AppStore>(makeStore, {
-  debug: isProduction()
+  debug: isProduction(),
 });
 
 export type AppStore = ReturnType<typeof makeStore>;

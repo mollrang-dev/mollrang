@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { quizAnswerSubmit } from "@store/thunk/quizThunk";
 import { HYDRATE } from "next-redux-wrapper";
 
 export interface QuizState {
@@ -16,14 +17,18 @@ export const QuizSlice = createSlice({
     setCurrentStep(state: QuizState, action: PayloadAction<number>) {
       state.currentStep = action.payload;
     },
-    extraReducers: {
-      [HYDRATE]: (state, action) => {
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(quizAnswerSubmit.fulfilled, (state, action) => {
+        // state = { ...state, someProperty: action.payload };
+      })
+      .addCase(HYDRATE, (state, action) => {
         return {
           ...state,
-          ...action.payload.quiz,
+          ...action,
         };
-      },
-    },
+      });
   },
 });
 

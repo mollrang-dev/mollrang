@@ -108,6 +108,7 @@ export const updateFavoriteQuizList = async (quizId: string) => {
 export const insertQuizAnswer = async (quizId: string) => {
   try {
     const { data } = await axiosInstance.post(`/quizzes/${quizId}/answer`);
+    return data;
   } catch (e) {
     throw e;
   }
