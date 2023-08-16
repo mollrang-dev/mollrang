@@ -3,19 +3,19 @@
     "quizId": "uuid-1",
     "question": "비대칭키 암호화는 대칭키 암호화보다 빠르고 안전한 암호화 방법이다.",
     "answer": "x",
-    "description": ""
+    "description": "비대칭키 암호화는 대칭키 암호화보다 빠르고 안전한 암호화 방법이다."
   },
   {
     "quizId": "uuid-2",
     "question": "https는 대표적인 비대칭키를 이용하는 방식으로 대칭키 암호화를 사용하지 않기 때문에 빠른 데이터 교환이 가능하다.",
     "answer": "x",
-    "description": ""
+    "description": "비대칭키 암호화는 대칭키 암호화보다 빠르고 안전한 암호화 방법이다."
   },
   {
     "quizId": "uuid-3",
     "question": "비대칭키 암호화에서 개인키로 암호화한 값은 공개키로 복호화가 가능하다.",
     "answer": "o",
-    "description": ""
+    "description": "비대칭키 암호화는 대칭키 암호화보다 빠르고 안전한 암호화 방법이다."
   },
   {
     "quizId": "uuid-4",
@@ -27,36 +27,36 @@
     "quizId": "uuid-5",
     "question": "MySQL의 Storage Engine은 MyISAM 1종류 뿐이다.",
     "answer": "x",
-    "description": ""
+    "description": "비대칭키 암호화는 대칭키 암호화보다 빠르고 안전한 암호화 방법이다."
   },
   {
     "quizId": "uuid-6",
     "question": "MySQL의 포그라운드 스레드는 클라이언트스레드라고도 불리며, 커넥션의 역할을 한다.",
     "answer": "o",
-    "description": ""
+    "description": "비대칭키 암호화는 대칭키 암호화보다 빠르고 안전한 암호화 방법이다."
   },
   {
     "quizId": "uuid-7",
     "question": "백그라운드 스레드는 포그라운드 스레드에서 처리하지 못한 읽기를 처리한다.1",
     "answer": "x",
-    "description": ""
+    "description": "비대칭키 암호화는 대칭키 암호화보다 빠르고 안전한 암호화 방법이다."
   },
   {
     "quizId": "uuid-8",
     "question": "백그라운드 스레드는 포그라운드 스레드에서 처리하지 못한 읽기를 처리한다.2",
     "answer": "x",
-    "description": ""
+    "description": "비대칭키 암호화는 대칭키 암호화보다 빠르고 안전한 암호화 방법이다."
   },
   {
     "quizId": "uuid-9",
     "question": "백그라운드 스레드는 포그라운드 스레드에서 처리하지 못한 읽기를 처리한다.3",
     "answer": "x",
-    "description": ""
+    "description": "비대칭키 암호화는 대칭키 암호화보다 빠르고 안전한 암호화 방법이다."
   },
   {
     "quizId": "uuid-10",
     "question": "백그라운드 스레드는 포그라운드 스레드에서 처리하지 못한 읽기를 처리한다.4",
     "answer": "x",
-    "description": ""
+    "description": "비대칭키 암호화는 대칭키 암호화보다 빠르고 안전한 암호화 방법이다."
   }
 ]

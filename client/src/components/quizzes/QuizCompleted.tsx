@@ -5,7 +5,7 @@ import {ReactElement} from "react";
 
 export const QuizCompleted = (): ReactElement => {
   const router = useRouter();
-
+  //TODO: reset state
   const onClickHandlerRedirectHome = async () => {
     await router.push('/');
   }

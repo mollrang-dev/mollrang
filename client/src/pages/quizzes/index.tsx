@@ -15,6 +15,7 @@ import { useAppDispatch, useAppSelector } from "@hooks/reduxHooks";
 import { setCurrentStep } from "@store/slice/quizSlice";
 import { useRouter } from "next/router";
 import { QuizCompleted } from "@components/quizzes/QuizCompleted";
+import { QuizResult } from "@components/quizzes/result/QuizResult";
 
 interface Props {
   size: number;
@@ -22,7 +23,7 @@ interface Props {
 
 const PlayQuizPage: React.FC<Props> = (props): ReactElement => {
   const dispatch = useAppDispatch();
-  const { currentStep } = useAppSelector((state) => state.quiz);
+  const { currentStep, hasResult } = useAppSelector((state) => state.quiz);
   const { size } = props;
   const router = useRouter();
   const { data } = useQuery([QUERY_KEYS.QUIZ.LIST, size], () =>
@@ -43,6 +44,7 @@ const PlayQuizPage: React.FC<Props> = (props): ReactElement => {
       {currentStep <= size && (
         <div className={styles.quiz_page_container}>
           <Timer time={60} />
+          {/* 퀴즈 폼 */}
           {data.map((value: Quiz.ListInformation, index: number) => {
             return (
               <div
@@ -54,10 +56,14 @@ const PlayQuizPage: React.FC<Props> = (props): ReactElement => {
                 )}
               >
                 <QuestionForm questionNumber={index + 1} quizLists={value} />
+                {hasResult ? (
+                  <QuizResult description={value.description} />
+                ) : (
+                  <ButtonGroup quizId={value.quizId} />
+                )}
               </div>
             );
           })}
-          <ButtonGroup />
         </div>
       )}
       {currentStep > size && <QuizCompleted />}

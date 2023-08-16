@@ -105,6 +105,7 @@ export const updateFavoriteQuizList = async (quizId: string) => {
  * @description: 유저 정답 제출
  * @param quizId
  */
+// body가 들어와야하는거 아닌가...?
 export const insertQuizAnswer = async (quizId: string) => {
   try {
     const { data } = await axiosInstance.post(`/quizzes/${quizId}/answer`);
