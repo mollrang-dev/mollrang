@@ -1,9 +1,11 @@
-import { ReactElement } from "react";
+import { ReactElement, useState } from "react";
 import styles from "./QuizResult.module.scss";
 import { useAppDispatch, useAppSelector } from "@hooks/reduxHooks";
 import { setCurrentStep, setHasResult } from "@store/slice/quizSlice";
 import { Button } from "@components/common/button/Button";
 import { Typography } from "@components/common/typography/Typography";
+import classNames from "classnames";
+import { useRouter } from "next/router";
 
 interface Props {
   description: string;
@@ -13,6 +15,8 @@ export const QuizResult = (props: Props): ReactElement => {
   const { description } = props;
   const { currentStep } = useAppSelector((state) => state.quiz);
   const dispatch = useAppDispatch();
+  const [showDescription, setShowDescription] = useState<boolean>(false);
+  const router = useRouter();
 
   const onClickHandlerNextQuestion = (): void => {
     dispatch(setCurrentStep(currentStep + 1));
@@ -20,11 +24,11 @@ export const QuizResult = (props: Props): ReactElement => {
   };
 
   const onClickHandlerQuizEnd = (): void => {
-    console.log("퀴즈 종료");
+    router.replace("/");
   };
   return (
     <div className={styles.quiz_result}>
-      <div>
+      <div className={classNames("text-center")}>
         <Typography color="primary" weight="bold">
           정답입니다.
         </Typography>
@@ -33,16 +37,23 @@ export const QuizResult = (props: Props): ReactElement => {
         </Typography>
       </div>
       <div>
-        <Typography color="gray750" weight="bold">
-          해설 보기
-        </Typography>
+        <Button
+          variant="icon"
+          onClick={() => setShowDescription(!showDescription)}
+        >
+          <Typography color="gray750" weight="bold">
+            해설 보기
+          </Typography>
+        </Button>
 
-        <div className={styles.quiz_description}>{description}</div>
+        {showDescription && (
+          <div className={styles.quiz_description}>{description}</div>
+        )}
       </div>
 
-      <div>
+      <div className={classNames("text-center")}>
         <Button variant="primary-outline" onClick={onClickHandlerQuizEnd}>
-          <Typography color="primary">다음 문제</Typography>
+          <Typography color="primary">퀴즈 종료</Typography>
         </Button>
         <Button onClick={onClickHandlerNextQuestion}>
           <Typography color="white">다음 문제</Typography>

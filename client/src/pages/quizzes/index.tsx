@@ -12,7 +12,7 @@ import { ButtonGroup } from "@components/quizzes/button/ox/ButtonGroup";
 import styles from "@styles/pages/QuizPage.module.scss";
 import classNames from "classnames";
 import { useAppDispatch, useAppSelector } from "@hooks/reduxHooks";
-import { setCurrentStep } from "@store/slice/quizSlice";
+import { setCurrentStep, setEndOfQuiz, setTimer } from "@store/slice/quizSlice";
 import { useRouter } from "next/router";
 import { QuizCompleted } from "@components/quizzes/QuizCompleted";
 import { QuizResult } from "@components/quizzes/result/QuizResult";
@@ -23,7 +23,9 @@ interface Props {
 
 const PlayQuizPage: React.FC<Props> = (props): ReactElement => {
   const dispatch = useAppDispatch();
-  const { currentStep, hasResult } = useAppSelector((state) => state.quiz);
+  const { currentStep, hasResult, timer, endOfQuiz } = useAppSelector(
+    (state) => state.quiz,
+  );
   const { size } = props;
   const router = useRouter();
   const { data } = useQuery([QUERY_KEYS.QUIZ.LIST, size], () =>
@@ -33,18 +35,20 @@ const PlayQuizPage: React.FC<Props> = (props): ReactElement => {
   useEffect(() => {
     resetQuizData();
   }, [router]);
+
   //TODO: 다른 방법 찾아보기
   // router 이동 시에 Redux Quiz Data 초기화 필요
   const resetQuizData = () => {
+    dispatch(setEndOfQuiz(false));
+    dispatch(setTimer(60));
     dispatch(setCurrentStep(1));
   };
 
   return (
     <div className={styles.quiz_page}>
-      {currentStep <= size && (
+      {!endOfQuiz ? (
         <div className={styles.quiz_page_container}>
-          <Timer time={60} />
-          {/* 퀴즈 폼 */}
+          {!hasResult && <Timer time={timer} />}
           {data.map((value: Quiz.ListInformation, index: number) => {
             return (
               <div
@@ -65,8 +69,9 @@ const PlayQuizPage: React.FC<Props> = (props): ReactElement => {
             );
           })}
         </div>
+      ) : (
+        <QuizCompleted />
       )}
-      {currentStep > size && <QuizCompleted />}
     </div>
   );
 };
