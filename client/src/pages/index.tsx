@@ -1,27 +1,27 @@
-import { GetServerSideProps, NextPage } from "next";
+import {GetServerSideProps, NextPage} from "next";
 import withGetServerSideProps from "@utils/withGetServerSideProps";
-import { getSession } from "next-auth/react";
-import React, { ReactElement } from "react";
+import {getSession} from "next-auth/react";
+import React, {ReactElement} from "react";
 import Image from "next/image";
-import { Icon } from "@components/common/icon/Icon";
-import { Typography } from "@components/common/typography/Typography";
+import {Icon} from "@components/common/icon/Icon";
+import {Typography} from "@components/common/Typography";
 import styles from "@styles/pages/index.module.scss";
-import { useSession } from "next-auth/react";
-import { UserContainer } from "@containers/UserContainer";
-import { PlayQuizButton } from "@components/quizzes/button/play/QuizButton";
-import { Humor } from "@components/today/humor/Humor";
+import {useSession} from "next-auth/react";
+import {UserContainer} from "@containers/UserContainer";
+import {PlayQuizButton} from "@components/quizzes/button/play/QuizButton";
+import {Humor} from "@components/today/humor/Humor";
 
 const Home: NextPage = (): ReactElement => {
-  const { data: session } = useSession();
+  const {data: session} = useSession();
 
   return (
     <div className={styles.root_container}>
       {session && session.user ? (
         <>
           <section className={"mb-20"}>
-            <UserContainer profileComponentType="default" />
+            <UserContainer profileComponentType="default"/>
             <div className={styles.play_quiz_wrapper}>
-              <PlayQuizButton />
+              <PlayQuizButton/>
             </div>
           </section>
         </>
@@ -40,7 +40,7 @@ const Home: NextPage = (): ReactElement => {
             <div className={styles.root_description_container}>
               <div className={styles.description_container}>
                 <div className={styles.description_1_wrapper}>
-                  <Icon type={"note"} width={36} height={36} />
+                  <Icon type={"note"} width={36} height={36}/>
                   <Typography color={"black500"} variant={"body1"}>
                     너 그거 알아?
                   </Typography>
@@ -62,16 +62,16 @@ const Home: NextPage = (): ReactElement => {
                 </div>
               </div>
 
-              <PlayQuizButton />
+              <PlayQuizButton/>
             </div>
           </section>
         </>
       )}
 
-      <hr />
+      <hr/>
 
       <section>
-        <Humor />
+        <Humor/>
       </section>
     </div>
   );

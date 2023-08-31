@@ -1,8 +1,10 @@
 import styles from "./Humor.module.scss";
-import React, { ReactElement } from "react";
-import { Typography } from "@components/common/typography/Typography";
-import { useQueryTodayHumorLists } from "@hooks/queries/todayHooks";
+import React, {ReactElement} from "react";
+import {Typography} from "@components/common/Typography";
+import {useQueryTodayHumorLists} from "@hooks/queries/todayHooks";
 import classNames from "classnames";
+import {SkeletonUi} from "@components/ui/SkeletonUi";
+
 
 export interface HumorList {
   title: string;
@@ -10,7 +12,7 @@ export interface HumorList {
 }
 
 export const Humor = (): ReactElement => {
-  const { data, isLoading } = useQueryTodayHumorLists();
+  const {data, isLoading} = useQueryTodayHumorLists();
 
   return (
     <div>
@@ -24,7 +26,9 @@ export const Humor = (): ReactElement => {
       </Typography>
 
       {isLoading ? (
-        <>isLoading... skeleton 적용</>
+        <>
+          <SkeletonUi theme={{height: 80, borderRadius: 10}}/>
+        </>
       ) : (
         <div className={classNames(styles.today_humor_wrapper)}>
           <div className={""}>
@@ -37,7 +41,7 @@ export const Humor = (): ReactElement => {
             >
               {data && data.title}
             </Typography>
-            <br />
+            <br/>
             <Typography
               className={"text-right"}
               variant={"body1"}

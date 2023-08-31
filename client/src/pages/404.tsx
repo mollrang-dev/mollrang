@@ -1,5 +1,5 @@
-import {Button} from "@components/common/button/Button";
-import {Typography} from "@components/common/typography/Typography";
+import {Button} from "@components/common/Button";
+import {Typography} from "@components/common/Typography";
 import {NextPage} from "next";
 import Image from "next/image";
 import {ReactElement} from "react";

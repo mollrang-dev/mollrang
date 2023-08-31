@@ -1,7 +1,7 @@
 import {ReactElement} from "react";
 import styles from './GithubButton.module.scss';
 import {Icon} from "@components/common/icon/Icon";
-import {Typography} from "@components/common/typography/Typography";
+import {Typography} from "@components/common/Typography";
 import {signIn, signOut, useSession} from "next-auth/react";
 
 export const GithubButton = (): ReactElement => {

@@ -1,4 +1,4 @@
-import {Typography} from "@components/common/typography/Typography";
+import {Typography} from "@components/common/Typography";
 import {ReactElement} from "react";
 import styles from "./SelectedQuiz.module.scss";
 import {useRouter} from "next/router";

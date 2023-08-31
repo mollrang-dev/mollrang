@@ -1,6 +1,6 @@
 import {ChangeEvent, ComponentProps, ReactElement, useEffect, useState} from 'react'
 import styles from './Input.module.scss'
-import {Typography} from '@components/common/typography/Typography'
+import {Typography} from '@components/common/Typography'
 import classNames from "classnames";
 
 type InputValue = string | number | ReadonlyArray<string>
@@ -15,7 +15,7 @@ interface InputProps extends ComponentProps<'input'> {
 }
 
 export const Input = (props: InputProps): ReactElement => {
-  //TODO: Test code를 통과시킬려면 input 의 고유 state가 필요하다.
+  //TODO: Test code를 통과시킬려면 Input 의 고유 state가 필요하다.
   // 근데 고유 상태를 가지게 되면 value 초기화를 할 경우 input의 state로 함께 초기화를 해줘야 화면 상에서 Text가 사라진다.
   // 그래서 state를 지웠던거였는데...흠
   const [inputValue, setInputValue] = useState<string>('')

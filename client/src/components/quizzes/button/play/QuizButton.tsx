@@ -1,14 +1,14 @@
 import styles from "@components/quizzes/button/play/QuizButton.module.scss";
-import { Icon } from "@components/common/icon/Icon";
-import { Typography } from "@components/common/typography/Typography";
-import { Button } from "@components/common/button/Button";
-import React, { ReactElement, useState } from "react";
-import { signIn, useSession } from "next-auth/react";
-import { SelectedQuiz } from "@components/quizzes/selected-quiz/SelectedQuiz";
-import { Modal } from "@components/common/modal/Modal";
+import {Icon} from "@components/common/icon/Icon";
+import {Typography} from "@components/common/Typography";
+import {Button} from "@components/common/Button";
+import React, {ReactElement, useState} from "react";
+import {signIn, useSession} from "next-auth/react";
+import {SelectedQuiz} from "@components/quizzes/selected-quiz/SelectedQuiz";
+import {Modal} from "@components/common/Modal";
 
 export const PlayQuizButton = (): ReactElement => {
-  const { data: session } = useSession();
+  const {data: session} = useSession();
   const [selectQuiz, setSelectQuiz] = useState<boolean>(false);
 
   const onClickHandlerPlayQuiz = async () => {
@@ -27,7 +27,7 @@ export const PlayQuizButton = (): ReactElement => {
         variant={"primary-rounded"}
         onClick={onClickHandlerPlayQuiz}
         icon={
-          <Icon className="flex" type={"open-book"} width={20} height={20} />
+          <Icon className="flex" type={"open-book"} width={20} height={20}/>
         }
         aria-label={"퀴즈 풀기"}
       >
@@ -43,7 +43,7 @@ export const PlayQuizButton = (): ReactElement => {
       </Button>
 
       <Modal isOpen={selectQuiz} onRequestClose={close}>
-        <SelectedQuiz />
+        <SelectedQuiz/>
       </Modal>
     </>
   );

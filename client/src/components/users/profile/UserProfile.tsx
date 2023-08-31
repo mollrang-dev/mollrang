@@ -1,10 +1,10 @@
-import React, { ReactElement } from "react";
+import React, {ReactElement} from "react";
 import styles from "./UserProfile.module.scss";
-import { Typography } from "@components/common/typography/Typography";
+import {Typography} from "@components/common/Typography";
 import Image from "next/image";
-import { User } from "@interfaces/user";
-import { Icon } from "@components/common/icon/Icon";
-import { ProfileComponentType } from "@containers/UserContainer";
+import {User} from "@interfaces/user";
+import {Icon} from "@components/common/icon/Icon";
+import {ProfileComponentType} from "@containers/UserContainer";
 
 interface Props {
   profile: User.Profile;
@@ -12,7 +12,7 @@ interface Props {
 }
 
 export const UserProfile: React.FC<Props> = (props): ReactElement => {
-  const { profile, profileBoxType } = props;
+  const {profile, profileBoxType} = props;
 
   const isSideMenuOpen = (): boolean => {
     return profileBoxType === "side";

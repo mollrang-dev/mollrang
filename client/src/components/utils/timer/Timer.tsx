@@ -1,16 +1,16 @@
-import { ReactElement, useEffect, useState } from "react";
-import { ProgressBar } from "@components/ui/progressbar/ProgressBar";
+import {ReactElement, useEffect} from "react";
+import {ProgressBar} from "@components/ui/progressbar/ProgressBar";
 import Image from "next/image";
 import styles from "./Timer.module.scss";
-import { useAppDispatch } from "@hooks/reduxHooks";
-import { setEndOfQuiz, setTimer } from "@store/slice/quizSlice";
+import {useAppDispatch} from "@hooks/reduxHooks";
+import {setEndOfQuiz, setTimer} from "@store/slice/quizSlice";
 
 interface Props {
   time: number;
 }
 
 export const Timer = (props: Props): ReactElement => {
-  const { time } = props;
+  const {time} = props;
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -35,9 +35,9 @@ export const Timer = (props: Props): ReactElement => {
   return (
     <div className={styles.timer}>
       <span className={styles[timeIconAnimation()]}>
-        <Image src={"/images/alarm.svg"} alt={"alarm"} width={80} height={60} />
+        <Image src={"/images/alarm.svg"} alt={"alarm"} width={80} height={60}/>
       </span>
-      <ProgressBar currentTab={time} maxCount={60} />
+      <ProgressBar currentTab={time} maxCount={60}/>
     </div>
   );
 };

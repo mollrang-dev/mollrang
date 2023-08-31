@@ -1,4 +1,4 @@
-import React, { ComponentProps, ReactElement, useEffect, useRef } from "react";
+import React, {ComponentProps, ReactElement, useEffect, useRef} from "react";
 import styles from "./Modal.module.scss";
 import ReactDOM from "react-dom";
 import classNames from "classnames";
@@ -11,12 +11,12 @@ interface Props extends ComponentProps<"div"> {
 }
 
 export const Modal: React.FC<Props> = (props): ReactElement => {
-  const { isOpen, onRequestClose, layerStyle, cardStyle, className } = props;
+  const {isOpen, onRequestClose, layerStyle, cardStyle, className} = props;
   const ele = useRef<HTMLDivElement>(null);
 
   const element =
     typeof window !== "undefined" &&
-    (document.querySelector("#modal") as HTMLDivElement);
+    (document.querySelector("#Modal") as HTMLDivElement);
 
   if (!element) return null;
 
@@ -28,7 +28,7 @@ export const Modal: React.FC<Props> = (props): ReactElement => {
   }, [isOpen]);
 
   const outerClickEvent = (e: React.MouseEvent) => {
-    const { target } = e;
+    const {target} = e;
     if (ele && ele.current) {
       const elements = ele.current.contains(target as Node);
       if (!elements && onRequestClose) onRequestClose();

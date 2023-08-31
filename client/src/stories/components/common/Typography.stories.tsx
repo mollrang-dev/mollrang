@@ -1,9 +1,9 @@
 import {Meta, StoryObj} from '@storybook/react';
-import {Typography} from '@components/common/typography/Typography';
+import {Index} from '@components/common/Typography';
 
-const meta: Meta<typeof Typography> = {
-  title: 'components/common/Typography',
-  component: Typography,
+const meta: Meta<typeof Index> = {
+  title: 'components/common/Index',
+  component: Index,
   argTypes: {
     variant: {
       defaultValue: 'body1',
@@ -24,28 +24,28 @@ const meta: Meta<typeof Typography> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Typography>;
+type Story = StoryObj<typeof Index>;
 
 export const FontBlack: Story = {
   render: () => {
     return (
       <>
-        <Typography variant={'h1'} weight={'thin'}>
+        <Index variant={'h1'} weight={'thin'}>
           h1 - thin - 22px
-        </Typography>
-        <Typography variant={'h2'} weight={'light'}>
+        </Index>
+        <Index variant={'h2'} weight={'light'}>
           h2 - light - 20px
-        </Typography>
-        <Typography variant={'h3'} weight={'regular'}>
+        </Index>
+        <Index variant={'h3'} weight={'regular'}>
           h3 - regular - 18px
-        </Typography>
-        <Typography variant={'h4'} weight={'bold'}>
+        </Index>
+        <Index variant={'h4'} weight={'bold'}>
           h4 - bold - 16px
-        </Typography>
-        <Typography variant={'h5'}>h5 - default - 14px</Typography>
-        <Typography variant={'body1'}>body1 - p - default - 18px</Typography>
-        <Typography variant={'body2'}>body2 - p - default - 16px</Typography>
-        <Typography variant={'caption'}>caption - p - default - 12x</Typography>
+        </Index>
+        <Index variant={'h5'}>h5 - default - 14px</Index>
+        <Index variant={'body1'}>body1 - p - default - 18px</Index>
+        <Index variant={'body2'}>body2 - p - default - 16px</Index>
+        <Index variant={'caption'}>caption - p - default - 12x</Index>
       </>
     );
   },

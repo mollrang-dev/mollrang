@@ -1,13 +1,13 @@
 import userEvent from "@testing-library/user-event";
 import {render, screen, act} from "@testing-library/react";
-import {Input} from "@components/common/input/Input";
+import {Input} from "@components/common/Input/Input";
 
 describe('Input component E2E test', () => {
   const user = userEvent.setup();
 
-  test('input[type=text] value 값이 입력한 값으로 변하는지 확인', async () => {
+  test('Input[type=text] value 값이 입력한 값으로 변하는지 확인', async () => {
     const type = 'text';
-    const expectedValue = 'input typing action';
+    const expectedValue = 'Input typing action';
     let initialValue = '';
 
     render(

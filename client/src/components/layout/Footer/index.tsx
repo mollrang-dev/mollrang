@@ -1,6 +1,6 @@
 import {ReactElement} from "react";
 import styles from "./Footer.module.scss";
-import {Typography} from "@components/common/typography/Typography";
+import {Typography} from "@components/common/Typography";
 
 export const Footer = (): ReactElement => {
   return (

@@ -2,7 +2,7 @@ import React, {ReactElement, ReactNode} from "react";
 import {Header} from "@components/layout/header/Header";
 import styles from "./LayoutComponent.module.scss";
 import {MetaComponent} from "@components/layout/header/MetaComponent";
-import {Footer} from "./footer/Footer";
+import {Footer} from "./Footer/Footer";
 import {SideMenu} from "@components/ui/side-menu/SideMenu";
 import {useAppSelector} from "@hooks/reduxHooks";
 import {LoadingSpinner} from "@components/ui/spinner/LoadingSpinner";

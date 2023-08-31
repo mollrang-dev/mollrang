@@ -1,7 +1,7 @@
 import {ReactElement} from "react";
 import styles from "./Header.module.scss";
 import Image from "next/image";
-import {Button} from "@components/common/button/Button";
+import {Button} from "@components/common/Button";
 import {Icon} from "@components/common/icon/Icon";
 import {setSideBarIsOpen} from "@store/slice/utilSlice";
 import {useAppDispatch, useAppSelector} from "@hooks/reduxHooks";

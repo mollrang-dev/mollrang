@@ -1,16 +1,16 @@
-import React, { ReactElement, useEffect, useRef } from "react";
+import React, {ReactElement, useEffect, useRef} from "react";
 import styles from "./SideMenu.module.scss";
 import classNames from "classnames";
-import { useAppDispatch, useAppSelector } from "@hooks/reduxHooks";
-import { setSideBarIsOpen } from "@store/slice/utilSlice";
-import { Button } from "@components/common/button/Button";
-import { Icon } from "@components/common/icon/Icon";
-import { GithubButton } from "@components/utils/oauth/github/GithubButton";
-import { NotePenIcon } from "@components/common/icon/custom/NotePenIcon";
-import { DocumentIcon } from "@components/common/icon/custom/DocumentIcon";
-import { StartIcon } from "@components/common/icon/custom/StartIcon";
-import { UserContainer } from "@containers/UserContainer";
-import { Typography } from "@components/common/typography/Typography";
+import {useAppDispatch, useAppSelector} from "@hooks/reduxHooks";
+import {setSideBarIsOpen} from "@store/slice/utilSlice";
+import {Button} from "@components/common/Button";
+import {Icon} from "@components/common/icon/Icon";
+import {GithubButton} from "@components/utils/oauth/github/GithubButton";
+import {NotePenIcon} from "@components/common/icon/custom/NotePenIcon";
+import {DocumentIcon} from "@components/common/icon/custom/DocumentIcon";
+import {StartIcon} from "@components/common/icon/custom/StartIcon";
+import {UserContainer} from "@containers/UserContainer";
+import {Typography} from "@components/common/Typography";
 
 interface Props {
   isOpen: boolean;
@@ -18,8 +18,8 @@ interface Props {
 
 export const SideMenu = (props: Props): ReactElement => {
   const dispatch = useAppDispatch();
-  const { isLogin } = useAppSelector((state) => state.auth);
-  const { isOpen = false } = props;
+  const {isLogin} = useAppSelector((state) => state.auth);
+  const {isOpen = false} = props;
   const ele = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export const SideMenu = (props: Props): ReactElement => {
   };
 
   const outerClickEvent = (e: React.MouseEvent) => {
-    const { target } = e;
+    const {target} = e;
     if (ele && ele.current) {
       const elements = ele.current.contains(target as Node); // HTMLElement
       if (!elements) closeSideMenuButtonHandler();
@@ -53,35 +53,35 @@ export const SideMenu = (props: Props): ReactElement => {
             variant={"icon"}
             onClick={closeSideMenuButtonHandler}
           >
-            <Icon type={"exit"} width={30} height={30} />
+            <Icon type={"exit"} width={30} height={30}/>
           </Button>
         </div>
         <div className={styles.side_menu_top}>
           {isLogin ? (
             <div>
-              <UserContainer profileComponentType="side" />
+              <UserContainer profileComponentType="side"/>
             </div>
           ) : (
             <div className={styles.github_button_wrapper}>
-              <GithubButton />
+              <GithubButton/>
             </div>
           )}
         </div>
 
-        <hr />
+        <hr/>
         {isLogin && (
           <div className={styles.side_menu_body}>
             <ul className={styles.menu_items_container}>
               <li className={styles.menu_items_wrapper}>
-                <StartIcon width={28} height={28} />
+                <StartIcon width={28} height={28}/>
                 <Typography color="white">ITEM 1</Typography>
               </li>
               <li className={styles.menu_items_wrapper}>
-                <DocumentIcon width={28} height={28} />
+                <DocumentIcon width={28} height={28}/>
                 <Typography color="white">ITEM 2</Typography>
               </li>
               <li className={styles.menu_items_wrapper}>
-                <NotePenIcon width={28} height={28} />
+                <NotePenIcon width={28} height={28}/>
                 <Typography color="white">ITEM 3</Typography>
               </li>
             </ul>

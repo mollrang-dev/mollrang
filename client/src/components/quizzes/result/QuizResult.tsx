@@ -1,19 +1,19 @@
-import { ReactElement, useState } from "react";
+import {ReactElement, useState} from "react";
 import styles from "./QuizResult.module.scss";
-import { useAppDispatch, useAppSelector } from "@hooks/reduxHooks";
-import { setCurrentStep, setHasResult } from "@store/slice/quizSlice";
-import { Button } from "@components/common/button/Button";
-import { Typography } from "@components/common/typography/Typography";
+import {useAppDispatch, useAppSelector} from "@hooks/reduxHooks";
+import {setCurrentStep, setHasResult} from "@store/slice/quizSlice";
+import {Button} from "@components/common/Button";
+import {Typography} from "@components/common/Typography";
 import classNames from "classnames";
-import { useRouter } from "next/router";
+import {useRouter} from "next/router";
 
 interface Props {
   description: string;
 }
 
 export const QuizResult = (props: Props): ReactElement => {
-  const { description } = props;
-  const { currentStep } = useAppSelector((state) => state.quiz);
+  const {description} = props;
+  const {currentStep} = useAppSelector((state) => state.quiz);
   const dispatch = useAppDispatch();
   const [showDescription, setShowDescription] = useState<boolean>(false);
   const router = useRouter();
