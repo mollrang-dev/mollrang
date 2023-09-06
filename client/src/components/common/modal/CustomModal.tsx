@@ -10,10 +10,9 @@ interface Props extends ComponentProps<"div"> {
   cardStyle?: React.CSSProperties;
 }
 
-export const Modal: React.FC<Props> = (props): ReactElement => {
+export const CustomModal: React.FC<Props> = (props): ReactElement => {
   const {isOpen, onRequestClose, layerStyle, cardStyle, className} = props;
   const ele = useRef<HTMLDivElement>(null);
-
   const element =
     typeof window !== "undefined" &&
     (document.querySelector("#Modal") as HTMLDivElement);

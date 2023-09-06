@@ -26,7 +26,8 @@ export const Header = (): ReactElement => {
           />
         </Link>
 
-        <Button onClick={sideBarButtonHandler} variant={"icon"} aria-label={'사이드 메뉴'}>
+        <Button className={styles.header_hamburger_button} onClick={sideBarButtonHandler} variant={"icon"}
+                aria-label={'사이드 메뉴'}>
           <Icon aria-hidden="true" type={"hamburger"} width={30} height={31}/>
         </Button>
       </div>

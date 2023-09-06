@@ -55,6 +55,7 @@ $total: 100;
   }
 }
 
+
 .scroll {
   width: 100%;
   padding: 0;
@@ -73,6 +74,12 @@ $total: 100;
   &::-webkit-scrollbar-thumb {
     background-color: $line;
     border-radius: 1px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .scroll::-webkit-scrollbar {
+    display: none;
   }
 }
 
