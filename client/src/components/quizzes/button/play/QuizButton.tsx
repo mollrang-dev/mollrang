@@ -5,7 +5,7 @@ import {Button} from "@components/common/Button";
 import React, {ReactElement, useState} from "react";
 import {signIn, useSession} from "next-auth/react";
 import {SelectedQuiz} from "@components/quizzes/selected-quiz/SelectedQuiz";
-import {Modal} from "@components/common/Modal";
+import {CustomModal} from "@components/common/modal/CustomModal";
 
 export const PlayQuizButton = (): ReactElement => {
   const {data: session} = useSession();
@@ -42,9 +42,9 @@ export const PlayQuizButton = (): ReactElement => {
         </Typography>
       </Button>
 
-      <Modal isOpen={selectQuiz} onRequestClose={close}>
+      <CustomModal isOpen={selectQuiz} onRequestClose={close}>
         <SelectedQuiz/>
-      </Modal>
+      </CustomModal>
     </>
   );
 };

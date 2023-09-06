@@ -22,6 +22,8 @@ export interface RequestConfig extends AxiosRequestConfig {
 }
 
 function AxiosAuthInterceptor<T>(response: AxiosResponse<T>): AxiosResponse {
+  if (!response) throw new NotFoundException();
+
   const status = response.status;
   if (status === 401) throw new AuthorizationException();
   if (status === 403) throw new ForbiddenException();

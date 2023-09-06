@@ -9,7 +9,7 @@ import {useRouter} from "next/router";
 const Error404Page: NextPage = (): ReactElement => {
   const router = useRouter();
   const redirectHome = async () => {
-    await router.replace('/');
+    await window.location.replace('/');
   }
   return (
     <div className={styles.page_404}>
